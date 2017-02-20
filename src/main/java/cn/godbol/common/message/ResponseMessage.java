@@ -25,4 +25,11 @@ public class ResponseMessage implements Serializable{
      * 反馈信息
      */
     private String message;
+
+    public static ResponseMessage ok(Object data) {
+        ResponseMessage message = new ResponseMessage();
+        message.setCode(200);
+        message.setData(data);
+        return message;
+    }
 }
