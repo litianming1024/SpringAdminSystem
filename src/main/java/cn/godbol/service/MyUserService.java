@@ -1,9 +1,12 @@
 package cn.godbol.service;
 
+import cn.godbol.common.service.api.DefaultQueryByEntityService;
 import cn.godbol.domain.model.Authority;
 import cn.godbol.domain.model.Group;
 import cn.godbol.domain.model.User;
 import cn.godbol.domain.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,9 +24,10 @@ import java.util.List;
 /**
  * Created by Li on 2016/10/15.
  */
+@Slf4j
 @Service
 @Transactional
-public class MyUserService implements UserDetailsService {
+public class MyUserService implements UserDetailsService, DefaultQueryByEntityService{
 
     @Inject
     private UserRepository userRepository;
@@ -80,4 +84,8 @@ public class MyUserService implements UserDetailsService {
         return userRepository.getByUsername(username);
     }
 
+    @Override
+    public PagingAndSortingRepository getRepository() {
+        return this.userRepository;
+    }
 }

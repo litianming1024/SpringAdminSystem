@@ -14,10 +14,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
-    @Bean
-    public HandleTimer handleTimer(){
-        return new HandleTimer();
-    }
+//    @Bean
+//    public HandleTimer handleTimer(){
+//        return new HandleTimer();
+//    }
 
     /**
      * {@inheritDoc}
@@ -25,10 +25,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
      *
      * @param registry
      */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(handleTimer());
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(handleTimer());
+//    }
 
 //    @Bean
 //    public MultipartResolver multipartResolver(){
