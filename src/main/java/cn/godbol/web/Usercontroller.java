@@ -13,7 +13,7 @@ import javax.inject.Inject;
  */
 @RestController
 @RequestMapping(value = "/user")
-public class Usercontroller implements QueryController<User>{
+public class Usercontroller implements QueryController<User, Long>{
 
     @Inject
     private MyUserService myUserService;
