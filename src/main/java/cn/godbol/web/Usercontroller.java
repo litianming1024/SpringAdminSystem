@@ -1,6 +1,6 @@
 package cn.godbol.web;
 
-import cn.godbol.common.controller.api.QueryController;
+import cn.godbol.common.controller.api.FindController;
 import cn.godbol.domain.model.User;
 import cn.godbol.service.MyUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import javax.inject.Inject;
  */
 @RestController
 @RequestMapping(value = "/user")
-public class Usercontroller implements QueryController<User, Long>{
+public class Usercontroller implements FindController<User, Long> {
 
     @Inject
     private MyUserService myUserService;
