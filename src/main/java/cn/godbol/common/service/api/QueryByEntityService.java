@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-20.
  */
-public interface QueryByEntityService<E, PK extends Serializable> {
+public interface QueryByEntityService<E, ID> {
     /**
      * 分页查询
      * @param param 参数
@@ -17,5 +17,5 @@ public interface QueryByEntityService<E, PK extends Serializable> {
      */
     PageResult<E> selectPage(QueryParam param);
 
-    E findOne(PK id);
+    E findOne(ID id);
 }

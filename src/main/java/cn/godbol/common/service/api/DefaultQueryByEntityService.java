@@ -12,8 +12,8 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-21.
  */
-public interface DefaultQueryByEntityService<E, PK extends Serializable> extends QueryByEntityService<E ,PK>{
-    PagingAndSortingRepository<E, PK> getRepository();
+public interface DefaultQueryByEntityService<E, ID extends Serializable> extends QueryByEntityService<E ,ID>{
+    PagingAndSortingRepository<E, ID> getRepository();
     /**
      * 分页进行查询数据
      *
@@ -33,7 +33,7 @@ public interface DefaultQueryByEntityService<E, PK extends Serializable> extends
     }
 
     @Override
-    default E findOne(PK id) {
+    default E findOne(ID id) {
         return getRepository().findOne(id);
     }
 }
