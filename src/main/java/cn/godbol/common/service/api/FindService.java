@@ -9,13 +9,19 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-20.
  */
-public interface QueryByEntityService<E, ID> {
+public interface FindService<T, ID extends Serializable> {
     /**
      * 分页查询
      * @param param 参数
      * @return 分页查询结果
      */
-    PageResult<E> selectPage(QueryParam param);
+    PageResult<T> selectPage(QueryParam param);
 
-    E findOne(ID id);
+    T findOne(ID id);
+
+    boolean exists(ID id);
+
+    Iterable<T> findAll();
+
+    Iterable<T> findAll(Iterable<T> ids);
 }

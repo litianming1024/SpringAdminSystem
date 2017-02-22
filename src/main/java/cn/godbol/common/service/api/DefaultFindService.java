@@ -12,8 +12,8 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-21.
  */
-public interface DefaultQueryByEntityService<E, ID extends Serializable> extends QueryByEntityService<E ,ID>{
-    PagingAndSortingRepository<E, ID> getRepository();
+public interface DefaultFindService<T, ID extends Serializable> extends FindService<T ,ID> {
+    PagingAndSortingRepository<T, ID> getRepository();
     /**
      * 分页进行查询数据
      *
@@ -21,11 +21,11 @@ public interface DefaultQueryByEntityService<E, ID extends Serializable> extends
      * @return 分页查询结果
      */
     @Override
-    default PageResult<E> selectPage(QueryParam param) {
-        PageResult<E> pagerResult = new PageResult<>();
+    default PageResult<T> selectPage(QueryParam param) {
+        PageResult<T> pagerResult = new PageResult<>();
         // page start from 0, but my BaseDataTable start from 1
         Pageable pageable = new PageRequest(param.getCurrentPage() - 1, param.getPageSize(), param.getSort());
-        Page<E> page = getRepository().findAll(pageable);
+        Page<T> page = getRepository().findAll(pageable);
         pagerResult.setTotal(page.getTotalElements());
         System.out.println(page);
         pagerResult.setData(page.getContent());
@@ -33,7 +33,7 @@ public interface DefaultQueryByEntityService<E, ID extends Serializable> extends
     }
 
     @Override
-    default E findOne(ID id) {
+    default T findOne(ID id) {
         return getRepository().findOne(id);
     }
 }

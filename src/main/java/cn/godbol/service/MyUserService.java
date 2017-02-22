@@ -1,6 +1,6 @@
 package cn.godbol.service;
 
-import cn.godbol.common.service.api.DefaultQueryByEntityService;
+import cn.godbol.common.service.api.DefaultFindService;
 import cn.godbol.domain.model.Authority;
 import cn.godbol.domain.model.Group;
 import cn.godbol.domain.model.User;
@@ -27,7 +27,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-public class MyUserService implements UserDetailsService, DefaultQueryByEntityService{
+public class MyUserService implements UserDetailsService, DefaultFindService {
 
     @Inject
     private UserRepository userRepository;
