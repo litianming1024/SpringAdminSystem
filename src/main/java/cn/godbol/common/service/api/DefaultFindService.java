@@ -27,7 +27,6 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
         Pageable pageable = new PageRequest(param.getCurrentPage() - 1, param.getPageSize(), param.getSort());
         Page<T> page = getRepository().findAll(pageable);
         pagerResult.setTotal(page.getTotalElements());
-        System.out.println(page);
         pagerResult.setData(page.getContent());
         return pagerResult;
     }
@@ -35,5 +34,20 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
     @Override
     default T findOne(ID id) {
         return getRepository().findOne(id);
+    }
+
+    @Override
+    default boolean exists(ID id){
+        return getRepository().exists(id);
+    }
+
+    @Override
+    default Iterable<T> findAll(){
+        return getRepository().findAll();
+    }
+
+    @Override
+    default  Iterable<T> findAll(Iterable<ID> ids){
+        return getRepository().findAll(ids);
     }
 }
