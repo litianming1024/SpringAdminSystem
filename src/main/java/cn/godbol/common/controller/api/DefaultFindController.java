@@ -5,21 +5,20 @@ import cn.godbol.common.query.QueryParam;
 import cn.godbol.common.service.api.FindService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.Serializable;
 
 /**
- * Created by li on 17-2-20.
+ * Created by li on 17-2-22.
  */
-public interface FindController<T, ID extends Serializable> {
-
+public interface DefaultFindController<T, ID extends Serializable> extends FindController<T, ID>{
     <S extends FindService<T, ID>> S getService();
 
     @GetMapping
-    ResponseMessage findAll(QueryParam param);
+    default ResponseMessage findAll(QueryParam param){
+        getService().findAll(param.toPageRequest());
+    }
 
     @GetMapping(path = "/{id}")
     ResponseMessage findOne(@PathVariable ID id);
-
 }

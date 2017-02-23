@@ -8,6 +8,6 @@ import java.io.Serializable;
  * Created by li on 17-2-21.
  */
 public interface DeleteController<T,ID extends Serializable> {
-    DeleteService<T, ID> getService();
+    <S extends DeleteService<T, ID>> S getService();
 
 }

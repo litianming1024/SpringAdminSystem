@@ -2,6 +2,7 @@ package cn.godbol.common.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,9 +12,14 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class PageResult<E> implements Serializable {
+public class PageResult<T> implements Serializable {
 
     private long total;
 
-    private List<E> data;
+    private List<T> data;
+
+    public PageResult(Page<T> page) {
+        this.total = page.getTotalElements();
+        this.data = page.getContent();
+    }
 }
