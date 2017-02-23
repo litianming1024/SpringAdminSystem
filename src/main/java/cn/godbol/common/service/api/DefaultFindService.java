@@ -37,4 +37,5 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
     default  Iterable<T> findAll(Iterable<ID> ids){
         return getRepository().findAll(ids);
     }
+
 }
