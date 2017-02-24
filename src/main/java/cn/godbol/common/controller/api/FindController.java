@@ -9,12 +9,12 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-20.
  */
-public interface FindController<T, ID extends Serializable> {
+public interface FindController<T, ID extends Serializable, Q extends Serializable> {
 
     FindService<T, ID> getService();
 
     @GetMapping
-    ResponseEntity findAll(QueryParam param);
+    ResponseEntity findAll(Q param);
 
 //    @GetMapping(path = "/{id}")
 //    ResponseMessage findOne(@PathVariable ID id);
