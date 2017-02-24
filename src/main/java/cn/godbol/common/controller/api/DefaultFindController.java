@@ -14,7 +14,7 @@ import java.io.Serializable;
  * Created by li on 17-2-22.
  */
 public interface DefaultFindController<T, ID extends Serializable> extends FindController<T, ID>{
-    <S extends FindService<T, ID>> S getService();
+    FindService<T, ID> getService();
 
     default ResponseEntity findAll(QueryParam param){
         return ResponseEntityBuilder.find(getService().findAll(param.toPageRequest()));

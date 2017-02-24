@@ -11,12 +11,12 @@ import java.io.Serializable;
  */
 @Getter
 public class QueryParam implements Serializable {
-    private int pageSize = 25;
+    private int size = 25;
     private int currentPage = 1;
     Sort sort = new Sort(Sort.Direction.DESC, "id");
 
     public PageRequest toPageRequest(){
-        PageRequest pageRequest = new PageRequest(currentPage - 1, pageSize, sort);
+        PageRequest pageRequest = new PageRequest(currentPage - 1, size, sort);
         return pageRequest;
     }
 }

@@ -1,13 +1,9 @@
 package cn.godbol.common.controller.api;
 
-import cn.godbol.common.message.ResponseMessage;
 import cn.godbol.common.query.QueryParam;
 import cn.godbol.common.service.api.FindService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.io.Serializable;
 
 /**
@@ -15,7 +11,7 @@ import java.io.Serializable;
  */
 public interface FindController<T, ID extends Serializable> {
 
-    <S extends FindService<T, ID>> S getService();
+    FindService<T, ID> getService();
 
     @GetMapping
     ResponseEntity findAll(QueryParam param);

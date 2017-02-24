@@ -38,4 +38,8 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
         return getRepository().findAll(ids);
     }
 
+    @Override
+    default Long count(){
+        return getRepository().count();
+    }
 }
