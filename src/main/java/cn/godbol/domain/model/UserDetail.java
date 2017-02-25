@@ -1,5 +1,7 @@
 package cn.godbol.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "tb_userdetail")
 @Getter
 @Setter
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class UserDetail extends BaseModel {
 
     //中文名

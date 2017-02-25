@@ -1,5 +1,7 @@
 package cn.godbol.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +16,7 @@ import java.util.Collection;
 @Table(name = "tb_group")
 @Getter
 @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Group extends BaseModel {
 
     @Column(length = 50)
@@ -27,9 +30,10 @@ public class Group extends BaseModel {
     @ManyToMany(mappedBy = "groups")
     private Collection<User> users;
 
+    @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
     @ManyToMany
     @JoinTable(name = "tb_groups_authorities",
             joinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private Collection<Authority> authorities;
 }

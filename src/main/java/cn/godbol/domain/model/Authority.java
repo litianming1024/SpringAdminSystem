@@ -1,5 +1,7 @@
 package cn.godbol.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +14,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "tb_authority")
 @Getter @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Authority extends BaseModel {
 
     @Column(length = 50)
