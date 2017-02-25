@@ -1,10 +1,12 @@
 package cn.godbol.common.service.api;
 
+import cn.godbol.domain.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by li on 17-2-21.
@@ -15,6 +17,10 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
 
     @Override
     default Page<T> findAll(Pageable pageable){
+        Page<T> page = getRepository().findAll(pageable);
+        System.out.println(page.getTotalElements());
+
+        System.out.println(page.getContent());
         return getRepository().findAll(pageable);
     }
 

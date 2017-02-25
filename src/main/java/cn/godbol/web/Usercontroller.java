@@ -1,6 +1,11 @@
 package cn.godbol.web;
 
+import cn.godbol.common.controller.api.DefaultFindController;
+import cn.godbol.common.entity.PageResult;
+import cn.godbol.common.message.CustomResponseEntity;
+import cn.godbol.common.message.ResponseMessage;
 import cn.godbol.common.query.QueryParam;
+import cn.godbol.domain.model.User;
 import cn.godbol.service.MyUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -17,7 +22,7 @@ import javax.inject.Inject;
 @Slf4j
 @RestController
 @RequestMapping(value = "/user")
-public class Usercontroller {
+public class Usercontroller{
 
     @Inject
     private MyUserService myUserService;
@@ -28,8 +33,8 @@ public class Usercontroller {
 //    }
 
     @GetMapping
-    public ResponseEntity findAll(QueryParam param){
-        return ResponseEntity.ok(myUserService.findAll(param.toPageRequest()));
+    public Page findAll(QueryParam param){
+        return myUserService.findAll(param.toPageRequest());
     }
 
 }

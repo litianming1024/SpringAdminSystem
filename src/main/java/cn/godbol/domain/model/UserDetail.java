@@ -1,6 +1,9 @@
 package cn.godbol.domain.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 /**
@@ -8,7 +11,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "tb_userdetail")
-@Data
+@Getter
+@Setter
 
 public class UserDetail extends BaseModel {
 

@@ -5,6 +5,7 @@ import cn.godbol.common.query.QueryParam;
 import cn.godbol.common.service.api.FindService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.Serializable;
 
@@ -14,6 +15,8 @@ import java.io.Serializable;
 public interface DefaultFindController<T, ID extends Serializable, Q extends Serializable> extends FindController<T, ID, Q>{
     FindService<T, ID> getService();
 
+    @Override
+    @GetMapping
     default ResponseEntity findAll(Q param){
         if (param instanceof QueryParam){
             QueryParam queryParam = (QueryParam)param;
