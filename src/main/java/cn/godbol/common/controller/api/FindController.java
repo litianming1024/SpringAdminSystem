@@ -1,6 +1,7 @@
 package cn.godbol.common.controller.api;
 
 import cn.godbol.common.service.api.FindService;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.io.Serializable;
@@ -13,7 +14,7 @@ public interface FindController<T, ID extends Serializable, Q extends Serializab
     FindService<T, ID> getService();
 
     @GetMapping
-    ResponseEntity findAll(Q param);
+    Page<T> findAll(Q param);
 
 //    @GetMapping(path = "/{id}")
 //    ResponseMessage findOne(@PathVariable ID id);
