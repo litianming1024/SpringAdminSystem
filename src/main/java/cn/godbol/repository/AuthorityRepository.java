@@ -1,4 +1,4 @@
-package cn.godbol.domain.repository;
+package cn.godbol.repository;
 
 import cn.godbol.domain.model.Authority;
 import org.springframework.data.jpa.repository.JpaRepository;

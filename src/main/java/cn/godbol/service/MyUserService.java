@@ -2,9 +2,9 @@ package cn.godbol.service;
 
 import cn.godbol.common.service.api.DefaultFindService;
 import cn.godbol.domain.model.Authority;
-import cn.godbol.domain.model.Group;
-import cn.godbol.domain.model.User;
-import cn.godbol.domain.repository.UserRepository;
+import cn.godbol.domain.Group;
+import cn.godbol.domain.User;
+import cn.godbol.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.security.core.GrantedAuthority;

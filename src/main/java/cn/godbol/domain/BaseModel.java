@@ -1,4 +1,4 @@
-package cn.godbol.domain.model;
+package cn.godbol.domain;
 
 import lombok.Getter;
 import lombok.Setter;

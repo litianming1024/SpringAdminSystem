@@ -1,6 +1,6 @@
-package cn.godbol.domain.repository;
+package cn.godbol.repository;
 
-import cn.godbol.domain.model.User;
+import cn.godbol.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

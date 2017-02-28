@@ -1,7 +1,7 @@
 package cn.godbol.service;
 
 import cn.godbol.domain.model.Authority;
-import cn.godbol.domain.repository.AuthorityRepository;
+import cn.godbol.repository.AuthorityRepository;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;

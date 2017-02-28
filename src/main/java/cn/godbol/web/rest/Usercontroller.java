@@ -1,11 +1,10 @@
-package cn.godbol.web;
+package cn.godbol.web.rest;
 
 import cn.godbol.common.controller.api.DefaultFindController;
 import cn.godbol.common.query.QueryParam;
-import cn.godbol.domain.model.User;
+import cn.godbol.domain.User;
 import cn.godbol.service.MyUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
