@@ -1,6 +1,5 @@
 package cn.godbol.domain;
 
-import cn.godbol.domain.model.Authority;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;

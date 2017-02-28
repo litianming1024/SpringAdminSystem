@@ -1,6 +1,6 @@
 package cn.godbol.repository;
 
-import cn.godbol.domain.model.Authority;
+import cn.godbol.domain.Authority;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

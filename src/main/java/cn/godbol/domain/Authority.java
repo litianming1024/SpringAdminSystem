@@ -1,4 +1,4 @@
-package cn.godbol.domain.model;
+package cn.godbol.domain;
 
 import cn.godbol.domain.BaseModel;
 import cn.godbol.domain.Group;
