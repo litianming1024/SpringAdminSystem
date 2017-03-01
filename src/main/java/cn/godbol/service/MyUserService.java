@@ -6,6 +6,7 @@ import cn.godbol.domain.Group;
 import cn.godbol.domain.User;
 import cn.godbol.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -85,7 +86,7 @@ public class MyUserService implements UserDetailsService, DefaultFindService {
     }
 
     @Override
-    public PagingAndSortingRepository getRepository() {
+    public JpaRepository<User, Long> getRepository() {
         return this.userRepository;
     }
 }

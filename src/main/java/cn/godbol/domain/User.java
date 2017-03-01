@@ -1,6 +1,7 @@
 package cn.godbol.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +27,7 @@ public class User extends BaseModel {
     private boolean credentialsNonExpired;
     private boolean enabled;
 
-    @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "tb_users_groups",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
