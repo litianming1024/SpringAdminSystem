@@ -18,4 +18,7 @@ public class GroupDTO {
     private boolean has_child;
 
     private Collection<AuthorityDTO> authorities;
+
+    public GroupDTO() {
+    }
 }

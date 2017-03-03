@@ -11,11 +11,14 @@ buildscript {
 }
 
 plugins {
-    id 'net.ltgt.apt' version '0.9'
+	id 'java'
+	id 'net.ltgt.apt' version '0.9'
 }
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
+apply plugin: "net.ltgt.apt"
 
 jar {
 	baseName = 'springadminsystem'
@@ -44,8 +47,16 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf:+')
 	compile('org.springframework.boot:spring-boot-starter-web:+')
     compile 'org.slf4j:slf4j-api:+'
-	compile 'org.mapstruct:mapstruct-jdk8:1.1.0.Final'
-	apt 'org.mapstruct:mapstruct-processor:1.1.0.Final'
+    compile('org.mapstruct:mapstruct-jdk8:1.1.0.Final')
+
+    apt ('org.mapstruct:mapstruct-processor:1.1.0.Final')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+compileJava {
+    options.compilerArgs = [
+            '-Amapstruct.suppressGeneratorTimestamp=true',
+            '-Amapstruct.suppressGeneratorVersionInfoComment=true'
+    ]
+}
+

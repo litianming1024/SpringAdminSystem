@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * Created by li on 17-3-1.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {})
 public interface AuthorityMapper {
     AuthorityDTO authorityToAuthorityDTO(Authority authority);
 

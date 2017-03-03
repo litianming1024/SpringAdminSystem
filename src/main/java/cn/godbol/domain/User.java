@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by Li on 2016/10/14.
@@ -32,8 +33,8 @@ public class User extends BaseModel {
     @JoinTable(name = "tb_users_groups",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"))
-    private Collection<Group> groups;
+    private Set<Group> groups;
 
-    @OneToOne(mappedBy = "user")
-    private UserDetail userDetail;
+//    @OneToOne(mappedBy = "user")
+//    private UserDetail userDetail;
 }

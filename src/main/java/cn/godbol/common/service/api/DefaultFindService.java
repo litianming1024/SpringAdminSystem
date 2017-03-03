@@ -2,6 +2,7 @@ package cn.godbol.common.service.api;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.io.Serializable;
@@ -11,7 +12,7 @@ import java.io.Serializable;
  */
 public interface DefaultFindService<T, ID extends Serializable> extends FindService<T ,ID> {
 
-    PagingAndSortingRepository<T, ID> getRepository();
+    JpaRepository<T, ID> getRepository();
 
     @Override
     default Page<T> findAll(Pageable pageable){

@@ -5,7 +5,13 @@ import cn.godbol.domain.Authority;
 import cn.godbol.domain.Group;
 import cn.godbol.domain.User;
 import cn.godbol.repository.UserRepository;
+import cn.godbol.service.dto.UserDTO;
+import cn.godbol.service.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -28,10 +34,17 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-public class MyUserService implements UserDetailsService, DefaultFindService {
+public class MyUserService implements UserDetailsService{
 
     @Inject
     private UserRepository userRepository;
+
+    private UserMapper userMapper;
+
+    public MyUserService(UserRepository userRepository,UserMapper userMapper) {
+        this.userRepository = userRepository;
+        this.userMapper = userMapper;
+    }
 
     /**
      * @param username the username identifying the user whose data is required.
@@ -85,8 +98,12 @@ public class MyUserService implements UserDetailsService, DefaultFindService {
         return userRepository.getByUsername(username);
     }
 
-    @Override
-    public JpaRepository<User, Long> getRepository() {
-        return this.userRepository;
+//    @Override
+//    public JpaRepository<User, Long> getRepository() {
+//        return this.userRepository;
+//    }
+
+    public Page<UserDTO> findAll(Pageable pageable){
+        return userRepository.findAll(pageable).map(userMapper::userToUserDTO);
     }
 }

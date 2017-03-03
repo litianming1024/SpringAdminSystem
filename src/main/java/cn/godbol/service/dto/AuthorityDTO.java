@@ -22,4 +22,7 @@ public class AuthorityDTO {
     private String icon;
 
     private Long sort;
+
+    public AuthorityDTO() {
+    }
 }

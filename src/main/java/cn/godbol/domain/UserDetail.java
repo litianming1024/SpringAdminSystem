@@ -23,7 +23,7 @@ public class UserDetail extends BaseModel {
     @Column(length = 50)
     private String telephone;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @OneToOne
+//    @JoinColumn(name = "user_id")
+//    private User user;
 }
