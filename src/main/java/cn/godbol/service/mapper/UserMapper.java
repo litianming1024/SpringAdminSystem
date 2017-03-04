@@ -8,7 +8,7 @@ import java.util.Collection;
 /**
  * Created by li on 17-2-28.
  */
-@Mapper
+@Mapper(componentModel = "spring", uses = {GroupMapper.class})
 public interface UserMapper {
 
     UserDTO userToUserDTO(User user);

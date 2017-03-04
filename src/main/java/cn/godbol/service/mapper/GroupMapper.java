@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * Created by li on 17-3-1.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {AuthorityMapper.class})
 public interface GroupMapper {
     GroupDTO groupToGroupDTO(Group group);
 

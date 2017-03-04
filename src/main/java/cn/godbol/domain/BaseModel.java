@@ -1,13 +1,9 @@
 package cn.godbol.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @MappedSuperclass
-@Getter @Setter
 public abstract class BaseModel implements Comparable<BaseModel>,Serializable {
 
     @Id
@@ -18,5 +14,13 @@ public abstract class BaseModel implements Comparable<BaseModel>,Serializable {
     @Override
     public int compareTo(BaseModel o) {
         return this.getId().compareTo(o.getId());
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
