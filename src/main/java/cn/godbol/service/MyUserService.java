@@ -39,11 +39,10 @@ public class MyUserService implements UserDetailsService{
     @Inject
     private UserRepository userRepository;
 
+    @Inject
     private UserMapper userMapper;
 
-    public MyUserService(UserRepository userRepository,UserMapper userMapper) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
+    public MyUserService() {
     }
 
     /**
