@@ -8,7 +8,6 @@ import cn.godbol.repository.UserRepository;
 import cn.godbol.service.dto.UserDTO;
 import cn.godbol.service.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
