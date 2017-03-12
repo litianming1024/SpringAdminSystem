@@ -1,4 +1,4 @@
-package cn.godbol;
+package cn.godbol.config;
 
 import cn.godbol.interceptor.HandleTimer;
 import org.springframework.context.annotation.Bean;
