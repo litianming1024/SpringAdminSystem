@@ -1,5 +1,6 @@
 package cn.godbol.service;
 
+import cn.godbol.common.service.api.DefaultCrudService;
 import cn.godbol.common.service.api.DefaultFindService;
 import cn.godbol.domain.Authority;
 import cn.godbol.domain.Group;
@@ -33,7 +34,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-public class MyUserService implements UserDetailsService{
+public class MyUserService implements UserDetailsService, DefaultCrudService<User, Long>{
 
     @Inject
     private UserRepository userRepository;
@@ -101,7 +102,12 @@ public class MyUserService implements UserDetailsService{
 //        return this.userRepository;
 //    }
 
-    public Page<UserDTO> findAll(Pageable pageable){
-        return userRepository.findAll(pageable).map(userMapper::userToUserDTO);
+    @Override
+    public JpaRepository<User, Long> getRepository() {
+        return userRepository;
     }
+
+//    public Page<UserDTO> findAll(Pageable pageable){
+//        return userRepository.findAll(pageable).map(userMapper::userToUserDTO);
+//    }
 }

@@ -18,10 +18,10 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
 
     @Override
     @GetMapping
-    default Page<T> findAll(Q param){
+    default ResponseEntity findAll(Q param){
         if (param instanceof QueryParam){
             QueryParam queryParam = (QueryParam)param;
-            return getService().findAll(queryParam.toPageRequest());
+            return ResponseEntity.ok(getService().findAll(queryParam.toPageRequest()));
         }else {
             return null;
         }

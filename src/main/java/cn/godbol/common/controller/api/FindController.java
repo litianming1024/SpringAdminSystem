@@ -14,7 +14,7 @@ public interface FindController<T, ID extends Serializable, Q extends Serializab
     FindService<T, ID> getService();
 
     @GetMapping
-    Page<T> findAll(Q param);
+    ResponseEntity findAll(Q param);
 
 //    @GetMapping(path = "/{id}")
 //    ResponseMessage findOne(@PathVariable ID id);
