@@ -1,10 +1,7 @@
 package cn.godbol.common.controller.api;
 
-import cn.godbol.common.message.ResponseEntityBuilder;
 import cn.godbol.common.query.QueryParam;
 import cn.godbol.common.service.api.FindService;
-import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -21,6 +18,7 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
     default ResponseEntity findAll(Q param){
         if (param instanceof QueryParam){
             QueryParam queryParam = (QueryParam)param;
+//            return getService().findAll(queryParam.toPageRequest());
             return ResponseEntity.ok(getService().findAll(queryParam.toPageRequest()));
         }else {
             return null;
