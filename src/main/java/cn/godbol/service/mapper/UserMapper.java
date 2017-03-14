@@ -1,5 +1,6 @@
 package cn.godbol.service.mapper;
 
+import cn.godbol.domain.Group;
 import cn.godbol.domain.User;
 import cn.godbol.service.dto.UserDTO;
 import org.mapstruct.Mapper;
@@ -14,4 +15,17 @@ public interface UserMapper {
     UserDTO userToUserDTO(User user);
 
     Collection<UserDTO> usersToUserDTOs(Collection<User> users);
+
+    User userDTOToUser(UserDTO userDTO);
+
+    Collection<User> userDTOsToUsers(Collection<UserDTO> userDTOs);
+
+    default Group groupFromId(Long id){
+        if (id == null){
+            return null;
+        }
+        Group group = new Group();
+        group.setId(id);
+        return group;
+    }
 }

@@ -9,5 +9,5 @@ import org.mapstruct.Mapper;
  */
 @Mapper(componentModel = "spring", uses = {})
 public interface ManageGroupMapper {
-    ManageGroupVM groupToManageGroupVM(Group group);
+//    ManageGroupVM groupToManageGroupVM(Group group);
 }

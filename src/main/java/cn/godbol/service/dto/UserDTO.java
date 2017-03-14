@@ -8,7 +8,7 @@ import java.util.Collection;
 public class UserDTO {
     private Long id;
     private String username;
-    private String password;
+//    private String password;
     private boolean accountNonExpired;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
@@ -31,13 +31,13 @@ public class UserDTO {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public boolean isAccountNonExpired() {
         return accountNonExpired;
