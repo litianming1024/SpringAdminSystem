@@ -16,7 +16,7 @@ public interface AuthorityMapper {
 
     Collection<AuthorityDTO> authorityiesToAuthorityDTOs(Collection<Authority> authorities);
 
-    @Mapping(target = "authorities", ignore = true)
+    @Mapping(target = "groups", ignore = true)
     Authority authorityDTOToAuthority(AuthorityDTO authorityDTO);
 
     Collection<Authority> authorityDTOsToAuthorities(Collection<AuthorityDTO> authorityDTOs);

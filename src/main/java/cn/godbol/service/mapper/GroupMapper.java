@@ -18,7 +18,7 @@ public interface GroupMapper {
     Collection<GroupDTO> groupsToGroupDTOs(Collection<Group> groups);
 
     @Mapping(target = "users", ignore = true)
-    Group groupDTOToGroup(Group group);
+    Group groupDTOToGroup(GroupDTO groupDTO);
 
     Collection<Group> groupDTOsToGroups(Collection<GroupDTO> groupDTOs);
 
