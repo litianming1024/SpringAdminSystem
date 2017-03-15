@@ -4,6 +4,7 @@ import cn.godbol.common.query.QueryParam;
 import cn.godbol.common.service.api.FindService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.io.Serializable;
 
@@ -25,6 +26,9 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
         }
     }
 //
-//    @GetMapping(path = "/{id}")
-//    ResponseMessage findOne(@PathVariable ID id);
+    @Override
+    @GetMapping(path = "/{id}")
+    default ResponseEntity findOne(@PathVariable ID id){
+        return ResponseEntity.ok(getService().findOne(id));
+    }
 }

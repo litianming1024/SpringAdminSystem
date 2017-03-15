@@ -1,5 +1,6 @@
 package cn.godbol.service.dto;
 
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 /**
@@ -7,6 +8,7 @@ import java.util.Collection;
  */
 public class UserDTO {
     private Long id;
+    @NotNull
     private String username;
 //    private String password;
     private boolean accountNonExpired;
