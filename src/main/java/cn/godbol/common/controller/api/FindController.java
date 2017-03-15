@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-20.
  */
-public interface FindController<T, ID extends Serializable, Q extends Serializable> {
+public interface FindController<T, ID extends Serializable, Q extends Serializable, DTO> {
 
     FindService<T, ID> getService();
 
@@ -21,4 +21,7 @@ public interface FindController<T, ID extends Serializable, Q extends Serializab
     @GetMapping(path = "/{id}")
     ResponseEntity findOne(@PathVariable ID id);
 
+    T DTOToEntity(DTO dto);
+
+    DTO entityToDTO(T entity);
 }

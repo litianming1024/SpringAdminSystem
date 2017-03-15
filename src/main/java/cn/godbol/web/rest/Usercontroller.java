@@ -22,7 +22,7 @@ import javax.inject.Inject;
 @Slf4j
 @RestController
 @RequestMapping(value = "/user")
-public class Usercontroller implements DefaultFindController<User, Long, QueryParam>, DefaultSaveController<User, Long, UserDTO> {
+public class Usercontroller implements DefaultFindController<User, Long, QueryParam>{
 
     @Inject
     private UserMapper userMapper;
@@ -36,17 +36,12 @@ public class Usercontroller implements DefaultFindController<User, Long, QueryPa
 //        return this.myUserService;
 //    }
 
-    @Override
-    @GetMapping
-    public ResponseEntity findAll(QueryParam param) {
-        return ResponseEntity.ok(((Page<User>)DefaultFindController.super.findAll(param).getBody())
-                .map(userMapper::userToUserDTO));
-    }
 
     @Override
     public DefaultCrudService<User, Long> getService() {
         return myUserService;
     }
+
 
     @Override
     public User DTOToEntity(UserDTO userDTO) {

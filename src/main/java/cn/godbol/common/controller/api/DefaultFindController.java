@@ -11,8 +11,7 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-22.
  */
-public interface DefaultFindController<T, ID extends Serializable, Q extends Serializable> extends FindController<T, ID, Q>{
-    FindService<T, ID> getService();
+public interface DefaultFindController<T, ID extends Serializable, Q extends Serializable, DTO> extends FindController<T, ID, Q, DTO>{
 
     @Override
     @GetMapping
@@ -20,8 +19,9 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
         if (param instanceof QueryParam){
             QueryParam queryParam = (QueryParam)param;
 //            return getService().findAll(queryParam.toPageRequest());
-            return ResponseEntity.ok(getService().findAll(queryParam.toPageRequest()));
+            return ResponseEntity.ok(getService().findAll(queryParam.toPageRequest()).map(entity->entityToDTO(entity)));
         }else {
+            //TODO 这里要抛QueryException
             return null;
         }
     }
@@ -31,4 +31,6 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
     default ResponseEntity findOne(@PathVariable ID id){
         return ResponseEntity.ok(getService().findOne(id));
     }
+
+
 }
