@@ -22,7 +22,7 @@ import javax.inject.Inject;
 @Slf4j
 @RestController
 @RequestMapping(value = "/user")
-public class Usercontroller implements DefaultFindController<User, Long, QueryParam>{
+public class Usercontroller implements DefaultFindController<User, Long, QueryParam, UserDTO>, DefaultSaveController<User, Long, UserDTO>{
 
     @Inject
     private UserMapper userMapper;
@@ -51,6 +51,11 @@ public class Usercontroller implements DefaultFindController<User, Long, QueryPa
     @Override
     public UserDTO entityToDTO(User user) {
         return userMapper.userToUserDTO(user);
+    }
+
+    @Override
+    public String getCurrentURI() {
+        return null;
     }
 
 }

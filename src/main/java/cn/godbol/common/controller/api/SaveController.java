@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
+import java.net.URISyntaxException;
 
 /**
  * Created by li on 17-2-22.
@@ -15,7 +17,7 @@ public interface SaveController<T, ID extends Serializable,DTO> {
     SaveService<T, ID> getService();
 
     @PostMapping
-    ResponseEntity create(DTO dto);
+    ResponseEntity create(DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, URISyntaxException;
 
     @PutMapping
     ResponseEntity update(DTO dto);
@@ -23,4 +25,6 @@ public interface SaveController<T, ID extends Serializable,DTO> {
     T DTOToEntity(DTO dto);
 
     DTO entityToDTO(T entity);
+
+    String getCurrentURI();
 }

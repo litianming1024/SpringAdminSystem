@@ -9,7 +9,7 @@ import org.springframework.http.HttpHeaders;
 @Slf4j
 public class HeaderUtil {
 
-    private static final String APPLICATION_NAME = "jhipsterSampleApplicationApp";
+    private static final String APPLICATION_NAME = "test";
 
 //    private HeaderUtil() {
 //    }
