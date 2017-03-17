@@ -17,7 +17,7 @@ public abstract class BaseModel implements Comparable<BaseModel>,Serializable {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {

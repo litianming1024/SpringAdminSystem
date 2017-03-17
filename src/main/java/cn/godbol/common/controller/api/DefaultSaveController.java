@@ -19,18 +19,21 @@ public interface DefaultSaveController<T, ID extends Serializable, DTO> extends 
     //由于使用泛型带来了如此多的异常情况要处理，这里可能要重新设计
     @Override
     @PostMapping
-    default ResponseEntity create(DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, URISyntaxException {
+    default ResponseEntity create(DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, URISyntaxException, NoSuchFieldException {
         T result = getService().save(DTOToEntity(dto));
-        String id = result.getClass().getDeclaredMethod("getId").invoke(result).toString();
+        String id = result.getClass().getDeclaredField("id").toString();
         return ResponseEntity.created(new URI(getCurrentURI() + id))
-                .headers(HeaderUtil.createEntityCreationAlert(result.getClass().getName(),id))
+                .headers(HeaderUtil.createEntityCreationAlert(result.getClass().getName(), id))
                 .body(result);
     }
 
+    @Override
     @PutMapping
-    default ResponseEntity update(DTO dto){
+    default ResponseEntity update(DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         T result = getService().save(DTOToEntity(dto));
-        return ResponseEntity.ok().build();
+        String id = result.getClass().getDeclaredMethod("getUsername").invoke(result).toString();
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert(result.getClass().getName(), id))
+                .body(result);
     }
 
 }

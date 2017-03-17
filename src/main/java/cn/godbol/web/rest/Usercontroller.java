@@ -1,5 +1,6 @@
 package cn.godbol.web.rest;
 
+import cn.godbol.common.controller.api.DefaultCrudController;
 import cn.godbol.common.controller.api.DefaultFindController;
 import cn.godbol.common.controller.api.DefaultSaveController;
 import cn.godbol.common.controller.api.SaveController;
@@ -22,7 +23,9 @@ import javax.inject.Inject;
 @Slf4j
 @RestController
 @RequestMapping(value = "/user")
-public class Usercontroller implements DefaultFindController<User, Long, QueryParam, UserDTO>, DefaultSaveController<User, Long, UserDTO>{
+public class Usercontroller implements DefaultCrudController<User, Long, QueryParam, UserDTO>{
+
+    private final String currentURI = "/user";
 
     @Inject
     private UserMapper userMapper;
@@ -55,7 +58,7 @@ public class Usercontroller implements DefaultFindController<User, Long, QueryPa
 
     @Override
     public String getCurrentURI() {
-        return null;
+        return this.currentURI;
     }
 
 }

@@ -29,7 +29,7 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
     @Override
     @GetMapping(path = "/{id}")
     default ResponseEntity findOne(@PathVariable ID id){
-        return ResponseEntity.ok(getService().findOne(id));
+        return ResponseEntity.ok(entityToDTO(getService().findOne(id)));
     }
 
 
