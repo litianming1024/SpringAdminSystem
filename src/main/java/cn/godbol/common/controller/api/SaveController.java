@@ -17,10 +17,10 @@ public interface SaveController<T, ID extends Serializable,DTO> {
     SaveService<T, ID> getService();
 
     @PostMapping
-    ResponseEntity create(DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, URISyntaxException, NoSuchFieldException;
+    ResponseEntity create(@RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, URISyntaxException;
 
     @PutMapping
-    ResponseEntity update(DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException;
+    ResponseEntity update(@RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException;
 
     T DTOToEntity(DTO dto);
 

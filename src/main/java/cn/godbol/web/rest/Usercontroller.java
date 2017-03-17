@@ -25,7 +25,7 @@ import javax.inject.Inject;
 @RequestMapping(value = "/user")
 public class Usercontroller implements DefaultCrudController<User, Long, QueryParam, UserDTO>{
 
-    private final String currentURI = "/user";
+    private final String currentURI = "/user/";
 
     @Inject
     private UserMapper userMapper;
@@ -41,7 +41,7 @@ public class Usercontroller implements DefaultCrudController<User, Long, QueryPa
 
 
     @Override
-    public DefaultCrudService<User, Long> getService() {
+    public MyUserService getService() {
         return myUserService;
     }
 
