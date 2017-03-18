@@ -1,4 +1,4 @@
-package cn.godbol.common.web.controller.api;
+package cn.godbol.common.web.rest.api;
 
 import java.io.Serializable;
 

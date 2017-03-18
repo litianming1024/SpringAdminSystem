@@ -1,4 +1,4 @@
-package cn.godbol.common.web.controller.api;
+package cn.godbol.common.web.rest.api;
 
 import cn.godbol.web.rest.util.HeaderUtil;
 import org.springframework.http.ResponseEntity;

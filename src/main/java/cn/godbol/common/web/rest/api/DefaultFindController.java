@@ -1,4 +1,4 @@
-package cn.godbol.common.web.controller.api;
+package cn.godbol.common.web.rest.api;
 
 import cn.godbol.common.query.QueryParam;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package cn.godbol.web.rest;
 
-import cn.godbol.common.web.controller.api.DefaultCrudController;
+import cn.godbol.common.web.rest.api.DefaultCrudController;
 import cn.godbol.common.query.QueryParam;
 import cn.godbol.domain.User;
 import cn.godbol.service.MyUserService;
