@@ -1,7 +1,6 @@
-package cn.godbol.common.controller.api;
+package cn.godbol.common.web.controller.api;
 
 import cn.godbol.common.query.QueryParam;
-import cn.godbol.common.service.api.FindService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
