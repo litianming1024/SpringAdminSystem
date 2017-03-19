@@ -9,4 +9,6 @@ public interface DeleteService<T, ID extends Serializable> {
     void delete(ID id);
     void delete(Iterable<? extends T> entities);
     void delete(T entity);
+
+    String getEntityName();
 }

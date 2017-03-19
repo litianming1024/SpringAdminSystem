@@ -1,11 +1,13 @@
 package cn.godbol.common.service.api;
 
+import cn.godbol.common.service.exception.EntityNotFoundException;
+import cn.godbol.common.service.exception.ServerErrorConstant;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 /**
  * Created by li on 17-2-21.
@@ -24,8 +26,13 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
     }
 
     @Override
-    default T findOne(ID id) {
-        return getRepository().findOne(id);
+    default Optional<T> findOne(ID id) {
+
+        Optional<T> result = Optional.ofNullable(getRepository().findOne(id));
+        if (!result.isPresent()){
+            throw new EntityNotFoundException(this.getClass().getName(), ServerErrorConstant.QUERY, getEntityName(), id.toString());
+        }
+        return result;
     }
 
     @Override

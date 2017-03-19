@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 
 /**
@@ -13,7 +14,7 @@ public interface FindService<T, ID extends Serializable> {
 
     Page<T> findAll(Pageable pageable);
 
-    T findOne(ID id);
+    Optional<T> findOne(ID id);
 
     boolean exists(ID id);
 
@@ -22,4 +23,6 @@ public interface FindService<T, ID extends Serializable> {
     Iterable<T> findAll(Iterable<ID> ids);
 
     Long count();
+
+    String getEntityName();
 }

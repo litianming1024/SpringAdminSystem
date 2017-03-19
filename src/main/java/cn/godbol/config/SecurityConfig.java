@@ -22,8 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
 //    @Bean
-//    public MyAccessDecisionManager myAccessDecisionManager(){
-//        return new MyAccessDecisionManager();
+//    public CustomAccessDecisionManager myAccessDecisionManager(){
+//        return new CustomAccessDecisionManager();
 //    }
 //
 //    @Bean

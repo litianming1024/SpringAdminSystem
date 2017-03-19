@@ -13,7 +13,7 @@ import java.util.Iterator;
  * Created by Li on 2016/11/17.
  */
 //@Service
-public class MyAccessDecisionManager implements AccessDecisionManager{
+public class CustomAccessDecisionManager implements AccessDecisionManager{
 
     /**
      * Resolves an access control decision for the passed parameters.

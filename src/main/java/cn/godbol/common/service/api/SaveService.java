@@ -8,4 +8,6 @@ import java.io.Serializable;
 public interface SaveService<T, ID extends Serializable> {
     <S extends T> S save(S entity);
     <S extends T> Iterable<S> save(Iterable<S> entities);
+
+    String getEntityName();
 }
