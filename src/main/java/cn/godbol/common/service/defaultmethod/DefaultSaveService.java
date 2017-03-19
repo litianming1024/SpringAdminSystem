@@ -1,6 +1,7 @@
-package cn.godbol.common.service.api;
+package cn.godbol.common.service.defaultmethod;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import cn.godbol.common.service.api.SaveService;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.io.Serializable;
 
@@ -8,7 +9,7 @@ import java.io.Serializable;
  * Created by li on 17-2-22.
  */
 public interface DefaultSaveService<T, ID extends Serializable> extends SaveService<T, ID> {
-    PagingAndSortingRepository<T,ID> getRepository();
+    JpaRepository<T,ID> getRepository();
 
     @Override
     default <S extends T> S save(S entity){

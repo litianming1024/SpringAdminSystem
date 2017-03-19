@@ -1,7 +1,9 @@
-package cn.godbol.common.service.api;
+package cn.godbol.common.service.defaultmethod;
 
+import cn.godbol.common.service.api.DeleteService;
 import cn.godbol.common.service.exception.EntityNotFoundException;
 import cn.godbol.common.service.exception.ServerErrorConstant;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.io.Serializable;
@@ -9,8 +11,8 @@ import java.io.Serializable;
 /**
  * Created by li on 17-2-22.
  */
-public interface DefaultDeleteService<T, ID extends Serializable> extends DeleteService<T,ID>{
-    PagingAndSortingRepository<T, ID> getRepository();
+public interface DefaultDeleteService<T, ID extends Serializable> extends DeleteService<T,ID> {
+    JpaRepository<T, ID> getRepository();
 
     @Override
     default void delete(ID id){

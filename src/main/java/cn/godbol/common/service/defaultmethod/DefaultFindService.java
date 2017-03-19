@@ -1,5 +1,6 @@
-package cn.godbol.common.service.api;
+package cn.godbol.common.service.defaultmethod;
 
+import cn.godbol.common.service.api.FindService;
 import cn.godbol.common.service.exception.EntityNotFoundException;
 import cn.godbol.common.service.exception.ServerErrorConstant;
 import org.springframework.data.domain.Page;

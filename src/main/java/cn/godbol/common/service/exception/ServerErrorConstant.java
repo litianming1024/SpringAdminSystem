@@ -9,7 +9,8 @@ import lombok.Getter;
 public enum ServerErrorConstant {
     CREATE("create"), DELETE("delete"), UPDATE("update"), QUERY("query");
 
-    private String action;
+    private final String action;
+    private final int
 
     ServerErrorConstant(String action) {
         this.action = action;
