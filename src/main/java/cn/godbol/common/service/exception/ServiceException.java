@@ -1,11 +1,12 @@
 package cn.godbol.common.service.exception;
 
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * Created by li on 17-3-18.
  */
-@Getter
+@Getter @ToString
 public class ServiceException extends RuntimeException {
     private final String serviceName;
     private final ServerErrorConstant serverErrorConstant;

@@ -19,10 +19,6 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
 
     @Override
     default Page<T> findAll(Pageable pageable){
-        Page<T> page = getRepository().findAll(pageable);
-        System.out.println(page.getTotalElements());
-
-        System.out.println(page.getContent());
         return getRepository().findAll(pageable);
     }
 

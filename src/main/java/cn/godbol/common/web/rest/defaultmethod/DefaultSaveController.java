@@ -1,5 +1,6 @@
-package cn.godbol.common.web.rest.api;
+package cn.godbol.common.web.rest.defaultmethod;
 
+import cn.godbol.common.web.rest.api.SaveController;
 import cn.godbol.web.rest.util.HeaderUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
