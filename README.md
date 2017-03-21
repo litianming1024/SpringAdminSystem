@@ -1,4 +1,4 @@
-# SpringAdminSystem
+# SpringQS(Beta版正式命名)
 一个基于Spring的通用“空想”开发框架，使用了RESTful进行设计
 ## 主要技术
 + Spring Boot

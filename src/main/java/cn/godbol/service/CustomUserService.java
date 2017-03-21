@@ -1,19 +1,12 @@
 package cn.godbol.service;
 
-import cn.godbol.common.service.api.DefaultCrudService;
-import cn.godbol.common.service.api.DefaultFindService;
+import cn.godbol.common.service.defaultmethod.DefaultCrudService;
 import cn.godbol.domain.Authority;
 import cn.godbol.domain.Group;
 import cn.godbol.domain.User;
 import cn.godbol.repository.UserRepository;
-import cn.godbol.service.dto.UserDTO;
-import cn.godbol.service.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,15 +27,15 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-public class MyUserService implements UserDetailsService, DefaultCrudService<User, Long>{
+public class CustomUserService implements UserDetailsService, DefaultCrudService<User, Long>{
+
+    private static final String ENTITY_NAME = "User";
 
     @Inject
     private UserRepository userRepository;
 
-    @Inject
-    private UserMapper userMapper;
 
-    public MyUserService() {
+    public CustomUserService() {
     }
 
     /**
@@ -97,17 +90,15 @@ public class MyUserService implements UserDetailsService, DefaultCrudService<Use
         return userRepository.getByUsername(username);
     }
 
-//    @Override
-//    public JpaRepository<User, Long> getRepository() {
-//        return this.userRepository;
-//    }
 
     @Override
     public JpaRepository<User, Long> getRepository() {
         return userRepository;
     }
 
-//    public Page<UserDTO> findAll(Pageable pageable){
-//        return userRepository.findAll(pageable).map(userMapper::userToUserDTO);
-//    }
+    @Override
+    public String getEntityName() {
+        return ENTITY_NAME;
+    }
+
 }

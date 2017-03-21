@@ -1,12 +1,10 @@
 package cn.godbol.config;
 
 
-import cn.godbol.service.MyUserService;
+import cn.godbol.service.CustomUserService;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
@@ -17,8 +15,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Bean
-    public MyUserService userService(){
-        return new MyUserService();
+    public CustomUserService userService(){
+        return new CustomUserService();
     }
 
 //    @Bean
