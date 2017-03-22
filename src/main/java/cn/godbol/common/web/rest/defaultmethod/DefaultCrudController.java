@@ -11,5 +11,6 @@ public interface DefaultCrudController<T, ID extends Serializable, Q extends Ser
         CrudController<T, ID, Q, DTO>,
         DefaultSaveController<T, ID, DTO>,
         DefaultDeleteController<T, ID>,
-        DefaultFindController<T, ID, Q, DTO> {
+        DefaultFindController<T, ID, Q, DTO>,
+        DefaultUpdateController<T, ID, DTO> {
 }

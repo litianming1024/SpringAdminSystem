@@ -19,9 +19,6 @@ public interface SaveController<T, ID extends Serializable,DTO> {
     @PostMapping
     ResponseEntity create(@RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, URISyntaxException;
 
-    @PutMapping
-    ResponseEntity update(@RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException;
-
     T DTOToEntity(DTO dto);
 
     DTO entityToDTO(T entity);

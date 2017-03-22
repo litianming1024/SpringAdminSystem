@@ -29,13 +29,4 @@ public interface DefaultSaveController<T, ID extends Serializable, DTO> extends 
                 .body(entityToDTO(result));
     }
 
-    @Override
-    @PutMapping
-    default ResponseEntity update(@RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        T result = getService().save(DTOToEntity(dto));
-        String id = result.getClass().getMethod("getId").invoke(result).toString();
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert(result.getClass().getName(), id))
-                .body(entityToDTO(result));
-    }
-
 }
