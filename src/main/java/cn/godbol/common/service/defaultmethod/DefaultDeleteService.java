@@ -2,7 +2,7 @@ package cn.godbol.common.service.defaultmethod;
 
 import cn.godbol.common.service.api.DeleteService;
 import cn.godbol.common.service.exception.EntityNotFoundException;
-import cn.godbol.common.service.exception.ServerErrorConstant;
+import cn.godbol.common.service.exception.ServerAction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -19,7 +19,7 @@ public interface DefaultDeleteService<T, ID extends Serializable> extends Delete
         if (getRepository().exists(id)){
             getRepository().delete(id);
         } else {
-            throw new EntityNotFoundException(this.getClass().getName(), ServerErrorConstant.DELETE, getEntityName(), id.toString());
+            throw new EntityNotFoundException(this.getClass().getName(), ServerAction.DELETE, getEntityName(), id.toString());
         }
 
     }

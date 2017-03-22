@@ -9,16 +9,16 @@ import lombok.ToString;
 @Getter @ToString
 public class ServiceException extends RuntimeException {
     private final String serviceName;
-    private final ServerErrorConstant serverErrorConstant;
+    private final ServerAction serverAction;
 
     /**
      * Constructs a new runtime exception with {@code null} as its
      * detail message.  The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause}.
      */
-    public ServiceException(String serviceName, ServerErrorConstant serverErrorConstant) {
+    public ServiceException(String serviceName, ServerAction serverAction) {
         super("service.error");
         this.serviceName = serviceName;
-        this.serverErrorConstant = serverErrorConstant;
+        this.serverAction = serverAction;
     }
 }

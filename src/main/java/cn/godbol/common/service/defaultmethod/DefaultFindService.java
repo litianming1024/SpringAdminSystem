@@ -2,7 +2,7 @@ package cn.godbol.common.service.defaultmethod;
 
 import cn.godbol.common.service.api.FindService;
 import cn.godbol.common.service.exception.EntityNotFoundException;
-import cn.godbol.common.service.exception.ServerErrorConstant;
+import cn.godbol.common.service.exception.ServerAction;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,7 +27,7 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
 
         Optional<T> result = Optional.ofNullable(getRepository().findOne(id));
         if (!result.isPresent()){
-            throw new EntityNotFoundException(this.getClass().getName(), ServerErrorConstant.QUERY, getEntityName(), id.toString());
+            throw new EntityNotFoundException(this.getClass().getName(), ServerAction.QUERY, getEntityName(), id.toString());
         }
         return result;
     }
