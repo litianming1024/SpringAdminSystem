@@ -8,5 +8,6 @@ import java.io.Serializable;
 public interface CrudService<T, ID extends Serializable> extends
         SaveService<T, ID>,
         DeleteService<T, ID>,
-        FindService<T, ID> {
+        FindService<T, ID>,
+        UpdateService<T, ID> {
 }

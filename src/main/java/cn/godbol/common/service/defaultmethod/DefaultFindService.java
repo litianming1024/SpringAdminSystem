@@ -16,6 +16,7 @@ import java.util.Optional;
 public interface DefaultFindService<T, ID extends Serializable> extends FindService<T ,ID> {
 
     JpaRepository<T, ID> getRepository();
+    String getEntityName();
 
     @Override
     default Page<T> findAll(Pageable pageable){
@@ -27,7 +28,7 @@ public interface DefaultFindService<T, ID extends Serializable> extends FindServ
 
         Optional<T> result = Optional.ofNullable(getRepository().findOne(id));
         if (!result.isPresent()){
-            throw new EntityNotFoundException(this.getClass().getName(), ServerAction.QUERY, getEntityName(), id.toString());
+            throw new EntityNotFoundException(this.getClass().getName(), ServerAction.GET, getEntityName(), id.toString());
         }
         return result;
     }

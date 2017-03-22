@@ -13,6 +13,7 @@ import java.io.Serializable;
  */
 public interface DefaultDeleteService<T, ID extends Serializable> extends DeleteService<T,ID> {
     JpaRepository<T, ID> getRepository();
+    String getEntityName();
 
     @Override
     default void delete(ID id){

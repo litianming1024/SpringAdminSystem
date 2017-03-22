@@ -23,6 +23,4 @@ public interface FindService<T, ID extends Serializable> {
     Iterable<T> findAll(Iterable<ID> ids);
 
     Long count();
-
-    String getEntityName();
 }

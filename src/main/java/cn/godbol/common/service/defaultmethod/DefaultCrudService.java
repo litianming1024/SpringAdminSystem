@@ -14,5 +14,6 @@ public interface DefaultCrudService<T, ID extends Serializable> extends
         CrudService<T, ID>,
         DefaultSaveService<T, ID>,
         DefaultDeleteService<T, ID>,
-        DefaultFindService<T, ID> {
+        DefaultFindService<T, ID>,
+        DefaultUpdateService<T, ID> {
 }

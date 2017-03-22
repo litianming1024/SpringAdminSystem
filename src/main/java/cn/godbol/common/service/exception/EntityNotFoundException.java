@@ -17,11 +17,4 @@ public class EntityNotFoundException extends ServiceException {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + "EntityNotFoundException{" +
-                "entityName='" + entityName + '\'' +
-                ", id='" + id + '\'' +
-                '}';
-    }
 }

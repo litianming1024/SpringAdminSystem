@@ -8,7 +8,7 @@ import lombok.ToString;
  */
 @Getter @ToString
 public enum ServerAction {
-    CREATE("create"), DELETE("delete"), UPDATE("update"), QUERY("query");
+    CREATE("create"), DELETE("delete"), UPDATE("update"), GET("get");
 
     private final String action;
 
