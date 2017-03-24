@@ -39,14 +39,6 @@ public class LoggingAspect {
      */
     @AfterThrowing(pointcut = "loggingPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
-//        if (environment.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT)) {
-//            log.error("Exception in {}.{}() with cause = \'{}\' and exception = \'{}\'", joinPoint.getSignature().getDeclaringTypeName(),
-//                    joinPoint.getSignature().getName(), e.getCause() != null? e.getCause() : "NULL", e.getMessage(), e);
-//
-//        } else {
-//            log.error("Exception in {}.{}() with cause = {}", joinPoint.getSignature().getDeclaringTypeName(),
-//                    joinPoint.getSignature().getName(), e.getCause() != null? e.getCause() : "NULL");
-//        }
     }
 
     /**
