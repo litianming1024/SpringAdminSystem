@@ -1,7 +1,7 @@
 package cn.godbol.config;
 
 
-import cn.godbol.service.CustomUserService;
+import cn.godbol.service.CustomUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,8 +15,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Bean
-    public CustomUserService userService(){
-        return new CustomUserService();
+    public CustomUserDetailService userService(){
+        return new CustomUserDetailService();
     }
 
 //    @Bean

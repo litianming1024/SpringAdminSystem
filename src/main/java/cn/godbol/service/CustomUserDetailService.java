@@ -27,7 +27,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-public class CustomUserService implements UserDetailsService, DefaultCrudService<User, Long>{
+public class CustomUserDetailService implements UserDetailsService, DefaultCrudService<User, Long>{
 
     private static final String ENTITY_NAME = "User";
 
@@ -35,7 +35,7 @@ public class CustomUserService implements UserDetailsService, DefaultCrudService
     private UserRepository userRepository;
 
 
-    public CustomUserService() {
+    public CustomUserDetailService() {
     }
 
     /**
@@ -85,7 +85,6 @@ public class CustomUserService implements UserDetailsService, DefaultCrudService
     }
 
     public User currentUser(){
-
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.getByUsername(username);
     }

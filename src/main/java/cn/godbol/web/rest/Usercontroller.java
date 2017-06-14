@@ -3,7 +3,7 @@ package cn.godbol.web.rest;
 import cn.godbol.common.web.rest.defaultmethod.DefaultCrudController;
 import cn.godbol.common.query.QueryParam;
 import cn.godbol.domain.User;
-import cn.godbol.service.CustomUserService;
+import cn.godbol.service.CustomUserDetailService;
 import cn.godbol.service.dto.UserDTO;
 import cn.godbol.service.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ public class Usercontroller implements DefaultCrudController<User, Long, QueryPa
     private UserMapper userMapper;
 
     @Inject
-    private CustomUserService customUserService;
+    private CustomUserDetailService customUserDetailService;
 
 
 //    @Override
@@ -35,8 +35,8 @@ public class Usercontroller implements DefaultCrudController<User, Long, QueryPa
 
 
     @Override
-    public CustomUserService getService() {
-        return customUserService;
+    public CustomUserDetailService getService() {
+        return customUserDetailService;
     }
 
 

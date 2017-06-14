@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class UserServiceTest {
     @Autowired
-    public CustomUserService userService;
+    public CustomUserDetailService userService;
 
 
 
