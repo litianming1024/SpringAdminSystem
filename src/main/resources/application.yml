@@ -19,3 +19,5 @@ logging:
 security:
   basic:
     enabled: false
+storage:
+  uploadPath=file:./upload
