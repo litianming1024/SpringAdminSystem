@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.8.RELEASE'
+		springBootVersion = '1.5.9.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -15,51 +15,65 @@ plugins {
 	id 'net.ltgt.apt' version '0.9'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
+//apply plugin: 'spring-boot'
 
 jar {
-	baseName = 'springadminsystem'
+	baseName = 'springqs'
 	version = '0.0.1-SNAPSHOT'
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
 }
 
-ext['thymeleaf.version'] = '+'
-ext['thymeleaf-layout-dialect.version'] = '+'
+subprojects {
 
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-aop:+')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa:+')
-	compile('org.springframework.boot:spring-boot-devtools:+')
-	compile('org.springframework.boot:spring-boot-starter-jdbc:+')
-	compile('org.projectlombok:lombok:+')
-    compile('javax.inject:javax.inject:+')
-	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:+')
-	compile('org.springframework.boot:spring-boot-starter-remote-shell:+')
-	compile('org.springframework.boot:spring-boot-starter-security:+')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf:+')
-	compile('org.springframework.boot:spring-boot-starter-web:+')
-    compile('org.slf4j:slf4j-api:+')
-	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	apply plugin: 'eclipse'
+	apply plugin: "net.ltgt.apt"
+	apply plugin: 'spring-boot'
 
-	apt 'org.mapstruct:mapstruct-processor:1.2.0.Final'
-    apt "org.projectlombok:lombok"
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
 
-	runtime('mysql:mysql-connector-java')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	group = 'cn.godbol'
+	version = 0.1
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		compile('org.springframework.boot:spring-boot-starter-aop:+')
+		compile('org.springframework.boot:spring-boot-starter-data-jpa:+')
+		compile('org.springframework.boot:spring-boot-devtools:+')
+		compile('org.springframework.boot:spring-boot-starter-jdbc:+')
+		compile('org.projectlombok:lombok:+')
+		compile('javax.inject:javax.inject:+')
+		compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:+')
+		compile('org.springframework.boot:spring-boot-starter-remote-shell:+')
+		compile('org.springframework.boot:spring-boot-starter-security:+')
+		compile('org.springframework.boot:spring-boot-starter-thymeleaf:+')
+		compile('org.springframework.boot:spring-boot-starter-web:+')
+		compile('org.slf4j:slf4j-api:+')
+		compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
+
+		apt 'org.mapstruct:mapstruct-processor:1.2.0.Final'
+		apt "org.projectlombok:lombok"
+
+		runtime('mysql:mysql-connector-java')
+		testCompile('org.springframework.boot:spring-boot-starter-test')
+	}
+
+	compileJava {
+		options.compilerArgs = [
+				'-Amapstruct.suppressGeneratorTimestamp=true',
+				'-Amapstruct.suppressGeneratorVersionInfoComment=true'
+		]
+	}
 }
-compileJava {
-    options.compilerArgs = [
-            '-Amapstruct.suppressGeneratorTimestamp=true',
-            '-Amapstruct.suppressGeneratorVersionInfoComment=true'
-    ]
-}
+
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '4.3.1'
