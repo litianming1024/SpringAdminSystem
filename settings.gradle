@@ -4,4 +4,3 @@ include 'springqs-app'
 include 'springqs-common'
 include 'springqs-logging'
 include 'springqs-security'
-
