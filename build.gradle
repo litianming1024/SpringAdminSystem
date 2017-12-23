@@ -32,7 +32,7 @@ subprojects {
 	apply plugin: 'idea'
 	apply plugin: 'eclipse'
 	apply plugin: "net.ltgt.apt"
-	apply plugin: 'spring-boot'
+	apply plugin: 'io.spring.dependency-management'
 
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
@@ -72,6 +72,12 @@ subprojects {
 				'-Amapstruct.suppressGeneratorTimestamp=true',
 				'-Amapstruct.suppressGeneratorVersionInfoComment=true'
 		]
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+		}
 	}
 }
 

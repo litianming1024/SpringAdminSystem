@@ -1,5 +1,8 @@
 package cn.godbol.jwt.domain;
 
+import cn.godbol.jwt.domain.BaseModel;
+import cn.godbol.jwt.domain.api.UserApi;
+import cn.godbol.jwt.domain.Group;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +15,7 @@ import java.util.Collection;
  */
 @Entity
 @Getter @Setter
-public class User extends BaseModel{
+public class User extends BaseModel /*implements UserApi*/{
 
     @Column(length = 50)
     private String username;
@@ -31,6 +34,7 @@ public class User extends BaseModel{
             inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"))
     private Collection<Group> groups;
 
-
+//    @OneToOne(mappedBy = "user")
+//    private UserDetail userDetail;
 
 }

@@ -14,8 +14,15 @@ spring:
     show-sql: true
 logging:
   level:
-    cn:
-      godbol: debug
+    root: debug
+jwt:
+  header: Authorization
+  secret: fack
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
 #security:
 #  basic:
 #    enabled: true

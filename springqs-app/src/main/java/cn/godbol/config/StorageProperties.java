@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * Created by li on 2017-11-23 下午9:38.
  */
-@ConfigurationProperties("storage")
+//@ConfigurationProperties("storage")
 public class StorageProperties {
 
     /**

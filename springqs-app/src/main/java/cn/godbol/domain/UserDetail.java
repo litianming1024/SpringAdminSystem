@@ -1,5 +1,7 @@
 package cn.godbol.domain;
 
+
+import cn.godbol.jwt.domain.BaseModel;
 import cn.godbol.jwt.domain.User;
 
 import javax.persistence.*;

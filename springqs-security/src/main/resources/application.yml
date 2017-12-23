@@ -1,0 +1,8 @@
+jwt:
+  header: Authorization
+  secret: fack
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh

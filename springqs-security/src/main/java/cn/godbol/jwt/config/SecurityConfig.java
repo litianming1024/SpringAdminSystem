@@ -1,16 +1,20 @@
 package cn.godbol.jwt.config;
 
 
+import cn.godbol.jwt.JwtAuthenticationTokenFilter;
 import cn.godbol.jwt.service.SecurityFilterSecurityInterceptor;
 import cn.godbol.jwt.service.SecurityUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * Created by Li on 2016/10/7.
@@ -33,6 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .userDetailsService(securityUserDetailService());
     }
 
+    @Bean
+    public JwtAuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
+        return new JwtAuthenticationTokenFilter();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -40,9 +49,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 //.exceptionHandling().authenticationEntryPoint().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers()
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css"
+                )
+                .permitAll()
+                .antMatchers("/auth/**").permitAll().anyRequest()
                 .permitAll()
                 .anyRequest().authenticated();
+        http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(securityFilterSecurityInterceptor, FilterSecurityInterceptor.class);
+//        http.headers().cacheControl()
+        ;
 //                .authorizeRequests()
 //                .antMatchers("/admin/**")
 //                .authenticated()
