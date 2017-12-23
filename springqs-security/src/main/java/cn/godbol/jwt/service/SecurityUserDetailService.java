@@ -2,6 +2,7 @@ package cn.godbol.jwt.service;
 
 import cn.godbol.jwt.domain.Authority;
 import cn.godbol.jwt.domain.Group;
+import cn.godbol.jwt.domain.JwtUser;
 import cn.godbol.jwt.domain.User;
 import cn.godbol.jwt.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -44,15 +45,15 @@ public class SecurityUserDetailService implements UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.getByUsername(username);
         if (user != null) {
-            return createSpringUser(user);
+            return createJwtUser(user);
         }else {
             log.debug("用户未找到");
             throw new UsernameNotFoundException(username + "not found!");
         }
     }
 
-    private org.springframework.security.core.userdetails.User createSpringUser(User user) {
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+    private JwtUser createJwtUser(User user) {
+        return new JwtUser(user.getUsername(), user.getPassword(),
                 user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(),
                 user.isAccountNonLocked(), getAuthorities(user.getGroups()));
     }
