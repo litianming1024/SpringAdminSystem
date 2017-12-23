@@ -15,6 +15,7 @@ import java.util.Collection;
  */
 @Entity
 @Getter @Setter
+@Table(name = "tb_user")
 public class User extends BaseModel /*implements UserApi*/{
 
     @Column(length = 50)

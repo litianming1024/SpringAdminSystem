@@ -16,4 +16,7 @@ public class AdminController {
     public void index(HttpServletRequest request){
         return;
     }
+
+//    @RequestMapping(RequestMethod.POST)
+//    public void test()
 }
