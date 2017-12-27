@@ -5,3 +5,5 @@ include 'springqs-web'
 include 'springqs-app'
 include 'springqs-logging'
 include 'springqs-security'
+include 'springqs-weixin'
+

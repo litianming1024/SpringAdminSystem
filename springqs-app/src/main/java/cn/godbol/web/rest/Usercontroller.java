@@ -4,7 +4,7 @@ import cn.godbol.jwt.domain.User;
 import cn.godbol.dto.UserDTO;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;
-//import cn.godbol.service.mapper.UserMapper;
+//import cn.godbol.mapper.UserMapper;
 import cn.godbol.web.rest.impl.DefaultCrudController;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

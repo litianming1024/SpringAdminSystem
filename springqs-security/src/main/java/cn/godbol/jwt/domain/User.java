@@ -1,8 +1,5 @@
 package cn.godbol.jwt.domain;
 
-import cn.godbol.jwt.domain.BaseModel;
-import cn.godbol.jwt.domain.api.UserApi;
-import cn.godbol.jwt.domain.Group;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;

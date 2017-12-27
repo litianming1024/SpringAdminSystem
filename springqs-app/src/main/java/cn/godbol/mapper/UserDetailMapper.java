@@ -1,8 +1,4 @@
-package cn.godbol.service.mapper;
-
-import cn.godbol.domain.UserDetail;
-import cn.godbol.dto.UserDetailDTO;
-import org.mapstruct.Mapper;
+package cn.godbol.mapper;
 
 /**
  * Created by li on 17-3-4.

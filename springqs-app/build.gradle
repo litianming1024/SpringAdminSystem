@@ -13,5 +13,6 @@ dependencies {
     compile project(':springqs-logging')
     compile project(':springqs-web')
     compile project(':springqs-security')
+    compile project(':springqs-weixin')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

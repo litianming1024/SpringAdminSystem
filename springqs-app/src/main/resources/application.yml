@@ -14,7 +14,7 @@ spring:
     show-sql: true
 logging:
   level:
-    cn.godbol: debug
+    root: debug
 jwt:
   header: Authorization
   secret: mySecret

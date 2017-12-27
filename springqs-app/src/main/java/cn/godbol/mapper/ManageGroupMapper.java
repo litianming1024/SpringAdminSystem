@@ -1,6 +1,4 @@
-package cn.godbol.service.mapper;
-
-import org.mapstruct.Mapper;
+package cn.godbol.mapper;
 
 /**
  * Created by li on 17-3-7.

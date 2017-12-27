@@ -1,10 +1,4 @@
-package cn.godbol.service.mapper;
-
-import cn.godbol.jwt.domain.Group;
-import cn.godbol.jwt.domain.User;
-import cn.godbol.dto.UserDTO;
-import org.mapstruct.Mapper;
-import java.util.Collection;
+package cn.godbol.mapper;
 
 /**
  * Created by li on 17-2-28.

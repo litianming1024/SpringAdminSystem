@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by li on 2017-12-22 下午1:52.
  */
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthenticationController {
 
     @Value("${jwt.header}")
@@ -40,7 +40,7 @@ public class AuthenticationController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @RequestMapping(/*value = "${jwt.route.authentication.path}",*/ method = RequestMethod.POST)
+    @RequestMapping(value = "/login",/*value = "${jwt.route.authentication.path}",*/ method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest/*, Device device*/) throws AuthenticationException {
 
         // Perform the security
