@@ -4,6 +4,7 @@ import cn.godbol.jwt.controller.rest.common.JwtAuthenticationRequest;
 import cn.godbol.jwt.controller.rest.common.JwtAuthenticationResponse;
 import cn.godbol.jwt.domain.JwtUser;
 import cn.godbol.jwt.util.JwtTokenUtil;
+import cn.godbol.message.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static cn.godbol.message.ResponseMessage.ok;
 
 /**
  * Created by li on 2017-12-22 下午1:52.
@@ -41,7 +44,7 @@ public class AuthenticationController {
     private UserDetailsService userDetailsService;
 
     @RequestMapping(value = "/login",/*value = "${jwt.route.authentication.path}",*/ method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest/*, Device device*/) throws AuthenticationException {
+    public ResponseMessage<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest/*, Device device*/) throws AuthenticationException {
 
         // Perform the security
         final Authentication authentication = authenticationManager.authenticate(
@@ -57,17 +60,17 @@ public class AuthenticationController {
         final String token = jwtTokenUtil.generateToken(userDetails/*, device*/);
 
         // Return the token
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        return ResponseMessage.ok(new JwtAuthenticationResponse(token));
     }
 
     @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
-    public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
+    public ResponseMessage<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader);
         String username = jwtTokenUtil.getUsernameFromToken(token);
         JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
 
         String refreshedToken = jwtTokenUtil.refreshToken(token);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
+        return ResponseMessage.ok(new JwtAuthenticationResponse(refreshedToken));
 //        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())) {
 //            String refreshedToken = jwtTokenUtil.refreshToken(token);
 //            return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));

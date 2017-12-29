@@ -1,4 +1,4 @@
-package cn.godbol.repository;
+package cn.godbol.jwt.repository;
 
 import cn.godbol.jwt.domain.Authority;
 import cn.godbol.jwt.repository.api.AuthorityRepositoryApi;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Li on 2016/11/18.
  */
-@Repository("authorityRepository")
+@Repository
 public interface AuthorityRepository extends JpaRepository<Authority, Long>, AuthorityRepositoryApi{
     List<Authority> findAll();
 }

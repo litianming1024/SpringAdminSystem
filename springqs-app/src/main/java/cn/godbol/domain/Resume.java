@@ -3,41 +3,27 @@ package cn.godbol.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.crypto.Data;
+import java.util.Collection;
 
 /**
  * Created by li on 2017-12-26 下午4:04.
+ * 简历
  */
-//@Entity
-//@Table(name = "tb_resume")
+@Entity
+@Table
 @Getter @Setter
-public class Resume extends BaseModel {
-
-    //名字
-    private String name;
-
-    //电话
-    private String tel;
-    private Character sex;
-    //婚姻状况
-    private String marry;
-    private String email;
-    //期望薪资
-    private String salary;
-    private String address;
-    //入校时间
-    private Data educationStartTime;
-    //毕业时间
-    private Data educationEndTime;
-    //学校
-    private String schoolName;
-    //学历
-    private String education;
-    //学位
-    private String degree;
-    //专业
-    private String major;
-
+public class Resume extends BaseModel{
+    @OneToOne(mappedBy = "resume")
+    private BasicInfo basicInfo;
+    @OneToMany(mappedBy = "resume")
+    private Collection<Education> educations;
+    @OneToMany(mappedBy = "resume")
+    private Collection<Experience> experiences;
+//    @ManyToMany
+//    @JoinTable(name = "apply", joinColumns = @JoinColumn(name = "resume_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "recruitment_id", referencedColumnName = "id"))
+//    private Collection<Recruitment> recruitments;
+    @OneToMany(mappedBy = "resume")
+    private Collection<Apply> applies;
 }
