@@ -1,5 +1,6 @@
 package cn.godbol.web.rest.api;
 
+import cn.godbol.message.ResponseMessage;
 import cn.godbol.service.api.FindService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,10 @@ public interface FindController<T, ID extends Serializable, Q extends Serializab
     FindService<T, ID> getService();
 
     @GetMapping
-    ResponseEntity findAll(Q param);
+    ResponseMessage findAll(Q param);
 
     @GetMapping(path = "/{id}")
-    ResponseEntity findOne(@PathVariable ID id);
+    ResponseMessage findOne(@PathVariable ID id);
 
     T DTOToEntity(DTO dto);
 

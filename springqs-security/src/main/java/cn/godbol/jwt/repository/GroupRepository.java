@@ -1,6 +1,6 @@
 package cn.godbol.jwt.repository;
 
-import cn.godbol.jwt.domain.Group;
+import cn.godbol.domain.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

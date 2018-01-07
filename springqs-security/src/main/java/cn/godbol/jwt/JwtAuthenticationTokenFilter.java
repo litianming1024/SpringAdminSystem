@@ -40,8 +40,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter{
 
         String username = null;
         String authToken = null;
-        if (requestHeader != null && requestHeader.startsWith("springqs")) {
-            authToken = requestHeader.substring(8);
+        if (requestHeader != null) {
+//                && requestHeader.startsWith("springqs")) {
+            authToken = requestHeader;
             try {
                 username = jwtTokenUtil.getUsernameFromToken(authToken);
             } catch (IllegalArgumentException e) {

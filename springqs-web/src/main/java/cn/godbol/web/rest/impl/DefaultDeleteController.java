@@ -1,5 +1,6 @@
 package cn.godbol.web.rest.impl;
 
+import cn.godbol.message.ResponseMessage;
 import cn.godbol.web.rest.api.DeleteController;
 import cn.godbol.util.HeaderUtil;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,11 @@ public interface DefaultDeleteController<T, ID extends Serializable> extends Del
 
     @Override
     @DeleteMapping(path = "/{id}")
-    default ResponseEntity delete(@PathVariable ID id){
+    default ResponseMessage delete(@PathVariable ID id){
         // TODO 方案待定
         //这里可能会产生异常，几乎使用了黑魔法
 //        Class<T> entityClass = (Class<T>)((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         getService().delete(id);
-        return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityDeletionAlert("",id.toString())).build();
+        return ResponseMessage.ok();
     }
 }

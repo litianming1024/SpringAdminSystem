@@ -13,13 +13,12 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class QueryParam implements Serializable {
-    private int size = 25;
-    private int currentPage = 1;
-
+    private int pageSize = 20;
+    private int page = 1;
 
     public PageRequest toPageRequest(){
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        PageRequest pageRequest = new PageRequest(currentPage - 1, size, sort);
+        PageRequest pageRequest = new PageRequest(page - 1, pageSize, sort);
         return pageRequest;
     }
 }

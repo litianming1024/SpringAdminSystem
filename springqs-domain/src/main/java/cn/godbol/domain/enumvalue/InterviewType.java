@@ -7,7 +7,7 @@ import lombok.Getter;
  */
 @Getter
 public enum InterviewType {
-    FIRST("初面"),
+    FIRST("初试"),
     RETEST("复试"),
     HR("HR面试");
 

@@ -1,10 +1,10 @@
 package cn.godbol.jwt.service;
 
-import cn.godbol.jwt.domain.Authority;
-import cn.godbol.jwt.domain.Group;
-import cn.godbol.jwt.domain.JwtUser;
-import cn.godbol.jwt.domain.User;
-import cn.godbol.jwt.repository.UserRepository;
+import cn.godbol.domain.User;
+import cn.godbol.domain.Authority;
+import cn.godbol.domain.Group;
+import cn.godbol.domain.JwtUser;
+import cn.godbol.jwt.repository.api.UserRepositoryApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -29,7 +29,7 @@ public class SecurityUserDetailService implements UserDetailsService{
 
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepositoryApi userRepository;
 
 
     public SecurityUserDetailService() {

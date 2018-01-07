@@ -27,5 +27,6 @@ public class Apply extends BaseModel {
     @OneToMany(mappedBy = "apply")
     private Collection<Appointment> appointments;
     //投递状态
+    @Enumerated(EnumType.STRING)
     private ApplyStatus applyStatus;
 }

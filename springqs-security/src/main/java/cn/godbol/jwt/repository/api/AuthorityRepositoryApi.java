@@ -1,10 +1,9 @@
 package cn.godbol.jwt.repository.api;
 
 
-import cn.godbol.jwt.domain.Authority;
-import cn.godbol.jwt.domain.api.AuthorityApi;
+import cn.godbol.domain.Authority;
+import cn.godbol.domain.api.AuthorityApi;
 
-import java.util.Collection;
 import java.util.List;
 
 /**

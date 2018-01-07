@@ -25,10 +25,12 @@ public class Appointment extends BaseModel {
     //签到
     private Boolean result;
     //面试方式
+    @Enumerated(EnumType.STRING)
     private InterviewMethod interviewMethod;
     //面试评价
     private String comment;
     //面试类型
-
+    @Enumerated(EnumType.STRING)
+    private InterviewType interviewType;
 
 }

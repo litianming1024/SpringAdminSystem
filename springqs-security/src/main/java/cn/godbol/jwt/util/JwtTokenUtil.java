@@ -1,6 +1,6 @@
 package cn.godbol.jwt.util;
 
-import cn.godbol.jwt.domain.JwtUser;
+import cn.godbol.domain.JwtUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,8 +1,10 @@
 package cn.godbol.web.rest.impl;
 
+import cn.godbol.message.ResponseMessage;
 import cn.godbol.web.rest.api.UpdateController;
 import cn.godbol.util.HeaderUtil;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -14,11 +16,10 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface DefaultUpdateController<T, ID extends Serializable, DTO> extends UpdateController<T, ID, DTO>{
     @Override
-    @PutMapping
-    default ResponseEntity update(@RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    @PutMapping(path = "/{id}")
+    default ResponseMessage update(@PathVariable ID id, @RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         T result = getService().update(DTOToEntity(dto));
-        String id = result.getClass().getMethod("getId").invoke(result).toString();
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert(result.getClass().getName(), id))
-                .body(entityToDTO(result));
+//        String id = result.getClass().getMethod("getId").invoke(result).toString();
+        return ResponseMessage.ok(entityToDTO(result));
     }
 }

@@ -82,7 +82,8 @@ public class ResponseMessage<T> implements Serializable {
         return new ResponseMessage<T>()
                 .data(data)
                 .putTimeStamp()
-                .status(200);
+                .status(200)
+                .statusText("OK");
     }
 
     public static <T> ResponseMessage<T> ok() {

@@ -2,12 +2,11 @@ package cn.godbol.jwt.controller.rest;
 
 import cn.godbol.jwt.controller.rest.common.JwtAuthenticationRequest;
 import cn.godbol.jwt.controller.rest.common.JwtAuthenticationResponse;
-import cn.godbol.jwt.domain.JwtUser;
+import cn.godbol.domain.JwtUser;
 import cn.godbol.jwt.util.JwtTokenUtil;
 import cn.godbol.message.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -44,7 +43,7 @@ public class AuthenticationController {
     private UserDetailsService userDetailsService;
 
     @RequestMapping(value = "/login",/*value = "${jwt.route.authentication.path}",*/ method = RequestMethod.POST)
-    public ResponseMessage<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest/*, Device device*/) throws AuthenticationException {
+    public ResponseMessage createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest/*, Device device*/) throws AuthenticationException {
 
         // Perform the security
         final Authentication authentication = authenticationManager.authenticate(

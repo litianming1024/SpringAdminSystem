@@ -6,4 +6,5 @@ include 'springqs-app'
 include 'springqs-logging'
 include 'springqs-security'
 include 'springqs-weixin'
+include 'springqs-domain'
 

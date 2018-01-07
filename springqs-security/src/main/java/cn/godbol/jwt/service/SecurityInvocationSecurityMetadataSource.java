@@ -1,6 +1,6 @@
 package cn.godbol.jwt.service;
 
-import cn.godbol.jwt.domain.Authority;
+import cn.godbol.domain.Authority;
 import cn.godbol.jwt.repository.api.AuthorityRepositoryApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
