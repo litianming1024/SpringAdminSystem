@@ -23,8 +23,8 @@ jwt:
     authentication:
       path: auth
       refresh: refresh
-#security:
-#  basic:
-#    enabled: true
+security:
+  basic:
+    enabled: false
 storage:
   uploadPath=file:./upload
