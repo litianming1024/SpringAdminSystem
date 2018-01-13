@@ -7,6 +7,8 @@ import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import me.chanjar.weixin.mp.bean.result.WxMpUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -16,6 +18,7 @@ import java.util.Map;
  */
 @Component
 public class SubscribeHandler extends AbstractHandler {
+
 
   @Override
   public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage,
@@ -30,6 +33,7 @@ public class SubscribeHandler extends AbstractHandler {
 
     if (userWxInfo != null) {
       // TODO 可以添加关注用户到本地
+
     }
 
     WxMpXmlOutMessage responseResult = null;
@@ -44,7 +48,7 @@ public class SubscribeHandler extends AbstractHandler {
     }
 
     try {
-      return new TextBuilder().build("感谢关注", wxMessage, weixinService);
+      return new TextBuilder().build("请前往http://test.com注册", wxMessage, weixinService);
     } catch (Exception e) {
       this.logger.error(e.getMessage(), e);
     }

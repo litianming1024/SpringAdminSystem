@@ -22,5 +22,4 @@ public interface SaveController<T, ID extends Serializable,DTO> {
 
     DTO entityToDTO(T entity);
 
-    String getCurrentURI();
 }

@@ -15,10 +15,13 @@ import java.util.Collection;
 @Getter @Setter
 public class Recruitment extends BaseModel{
     //职位名称
+    @Column(length = 30)
     private String name;
     //工作地点
+    @Column(length = 50)
     private String workplace;
     //职位类别
+    @Column(length = 30)
     private String category;
     //工作职责
     private String responsibility;

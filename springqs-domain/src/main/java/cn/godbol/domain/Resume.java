@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.util.Collection;
 
 /**
@@ -26,4 +25,8 @@ public class Resume extends BaseModel{
 //    private Collection<Recruitment> recruitments;
     @OneToMany(mappedBy = "resume")
     private Collection<Apply> applies;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

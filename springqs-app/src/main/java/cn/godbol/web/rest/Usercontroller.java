@@ -32,8 +32,6 @@ public class Usercontroller implements DefaultCrudController<User, Long, QueryPa
     UserServiceImpl userService;
 
 
-
-
     @Override
     public User DTOToEntity(UserDTO userDTO) {
         return userMapper.userDTOToUser(userDTO);
@@ -44,10 +42,6 @@ public class Usercontroller implements DefaultCrudController<User, Long, QueryPa
         return userMapper.userToUserDTO(user);
     }
 
-    @Override
-    public String getCurrentURI() {
-        return this.currentURI;
-    }
 
     @Override
     public CrudService<User, Long> getService() {
