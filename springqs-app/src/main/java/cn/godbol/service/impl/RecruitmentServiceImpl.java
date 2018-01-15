@@ -1,5 +1,6 @@
 package cn.godbol.service.impl;
 
+import cn.godbol.domain.Recruitment;
 import cn.godbol.repository.RecruitmentRepository;
 import cn.godbol.service.api.RecruitmentService;
 import cn.godbol.service.defaultmethod.DefaultCrudService;
@@ -11,12 +12,12 @@ import org.springframework.stereotype.Service;
  * Created by li on 2018-01-13 下午10:53.
  */
 @Service
-public class RecruitmentServiceImpl implements RecruitmentService, DefaultCrudService {
+public class RecruitmentServiceImpl implements RecruitmentService {
     @Autowired
     RecruitmentRepository recruitmentRepository;
 
     @Override
-    public JpaRepository getRepository() {
+    public JpaRepository<Recruitment, Long> getRepository() {
         return recruitmentRepository;
     }
 

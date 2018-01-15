@@ -73,6 +73,7 @@ subprojects {
 				'-Amapstruct.suppressGeneratorTimestamp=true',
 				'-Amapstruct.suppressGeneratorVersionInfoComment=true'
 		]
+		options.encoding = "UTF-8"
 	}
 
 	dependencyManagement {

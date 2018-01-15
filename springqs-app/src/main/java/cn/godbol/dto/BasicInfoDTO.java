@@ -29,6 +29,4 @@ public class BasicInfoDTO {
     private String address;
     //相片位置
     private String photoPath;
-
-    private ResumeDTO resume;
 }

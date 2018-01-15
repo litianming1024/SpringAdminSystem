@@ -15,10 +15,18 @@ import java.lang.reflect.InvocationTargetException;
  * Created by li on 17-3-22.
  */
 public interface DefaultUpdateController<T, ID extends Serializable, DTO> extends UpdateController<T, ID, DTO>{
+//    @Override
+//    @PutMapping(path = "/{id}")
+//    default ResponseMessage update(@PathVariable ID id, @RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+//        T result = getService().update(DTOToEntity(dto));
+////        String id = result.getClass().getMethod("getId").invoke(result).toString();
+//        return ResponseMessage.ok(entityToDTO(result));
+//    }
+
     @Override
     @PutMapping(path = "/{id}")
-    default ResponseMessage update(@PathVariable ID id, @RequestBody DTO dto) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        T result = getService().update(DTOToEntity(dto));
+    default ResponseMessage update(@PathVariable ID id, @RequestBody DTO dto) {
+        T result = getService().update(id, DTOToEntity(dto));
 //        String id = result.getClass().getMethod("getId").invoke(result).toString();
         return ResponseMessage.ok(entityToDTO(result));
     }

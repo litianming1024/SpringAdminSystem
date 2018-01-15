@@ -50,6 +50,6 @@ public class User extends BaseModel /*implements UserApi*/{
     private UserDetail userDetail;
 
     @OneToMany(mappedBy = "user")
-    private Collection<Resume> resume;
+    private Collection<Resume> resumes;
 
 }

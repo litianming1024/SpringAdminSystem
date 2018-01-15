@@ -8,5 +8,6 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface UpdateService<T, ID extends Serializable> {
     <S extends T> S update(S entity) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException;
+    <S extends T> S update(ID id, S entity);
     <S extends T> Iterable<S> update(Iterable<S> entities);
 }

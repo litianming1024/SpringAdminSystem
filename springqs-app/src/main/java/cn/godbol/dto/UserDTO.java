@@ -37,5 +37,5 @@ public class UserDTO {
 
     private Date birthday;
 
-
+    private Collection<ResumeDTO> resumes;
 }

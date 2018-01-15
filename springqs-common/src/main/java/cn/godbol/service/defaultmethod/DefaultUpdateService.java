@@ -21,11 +21,19 @@ public interface DefaultUpdateService<T, ID extends Serializable> extends Update
     @Override
     default <S extends T> S update(S entity) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
-                .withMatcher("id", ExampleMatcher.GenericPropertyMatchers.exact());
+                .withMatcher("id", ExampleMatcher.GenericPropertyMatchers.exact()).withIgnorePaths();
         Example<S> example = Example.of(entity, exampleMatcher);
         if (!getRepository().exists(example)){
             String id = entity.getClass().getMethod("getId").invoke(entity).toString();
             throw new EntityNotFoundException(this.getClass().getName(), ServerAction.UPDATE, getEntityName(), id);
+        }
+        return getRepository().save(entity);
+    }
+
+    @Override
+    default <S extends T> S update(ID id, S entity){
+        if (!getRepository().exists(id)){
+            throw new EntityNotFoundException(this.getClass().getName(), ServerAction.UPDATE, getEntityName(), id.toString());
         }
         return getRepository().save(entity);
     }
