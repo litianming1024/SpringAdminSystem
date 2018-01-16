@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 public class ExperienceDTO {
     private Long id;
-    private String companyNam;
+    private String projectName;
     //开始时间
     private Date workStartTime;
     //结束时间

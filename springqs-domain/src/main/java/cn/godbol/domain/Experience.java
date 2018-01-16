@@ -14,8 +14,8 @@ import java.util.Date;
 @Table
 @Setter @Getter
 public class Experience extends BaseModel {
-    //公司名称
-    private String companyNam;
+    //项目名称
+    private String projectName;
     //开始时间
     @Temporal(TemporalType.DATE)
     private Date workStartTime;
