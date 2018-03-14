@@ -18,14 +18,24 @@ public interface DefaultSaveService<T, ID extends Serializable> extends SaveServ
     String getEntityName();
 
     @Override
-    default <S extends T> S save(S entity) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        ExampleMatcher exampleMatcher = ExampleMatcher.matching()
-                .withMatcher("id", ExampleMatcher.GenericPropertyMatchers.exact());
-        Example<S> example = Example.of(entity, exampleMatcher);
-        if (getRepository().exists(example)){
-            String id = entity.getClass().getMethod("getId").invoke(entity).toString();
-            throw new EntityExistsException(this.getClass().getName(), ServerAction.CREATE, getEntityName(), id);
-        }
+    default <S extends T> S save(S entity) {
+//        ExampleMatcher exampleMatcher = ExampleMatcher.matching()
+//                .withMatcher("id", ExampleMatcher.GenericPropertyMatchers.exact());
+//        Example<S> example = Example.of(entity, exampleMatcher);
+//        if (getRepository().exists(example)){
+//            String id = null;
+//            try {
+//                id = entity.getClass().getMethod("getId").invoke(entity).toString();
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            } catch (InvocationTargetException e) {
+//                e.printStackTrace();
+//            } catch (NoSuchMethodException e) {
+//                e.printStackTrace();
+//            }
+//            throw new EntityExistsException(this.getClass().getName(), ServerAction.CREATE, getEntityName(), id);
+//        }
+
         return getRepository().save(entity);
     }
 

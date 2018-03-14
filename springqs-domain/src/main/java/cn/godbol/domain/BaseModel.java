@@ -33,4 +33,8 @@ public abstract class BaseModel implements Comparable<BaseModel>,Serializable {
         return this.getId().compareTo(o.getId());
     }
 
+    public Long getPrimaryKey() {
+        return id;
+    }
+
 }

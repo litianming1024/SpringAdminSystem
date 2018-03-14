@@ -26,7 +26,7 @@ public class Education extends BaseModel{
     //学历
     private String education;
     //学位
-    private String degree;
+//    private String degree;
     //专业
     private String major;
 

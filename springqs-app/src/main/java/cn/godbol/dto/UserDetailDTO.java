@@ -11,6 +11,7 @@ public class UserDetailDTO {
     private Long id;
     private String c_name;
     private String telephone;
+    private String openId;
 
 
 }

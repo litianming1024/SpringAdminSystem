@@ -17,11 +17,11 @@ public class BasicInfoDTO {
     private String idcard;
     //电话
     private String tel;
-    private Character sex;
+    private Integer sex;
     //出生日期
     private Date birthday;
     //婚姻状况
-    private String marry;
+//    private String marry;
     private String email;
     //期望薪资
     private String salary;
@@ -29,4 +29,6 @@ public class BasicInfoDTO {
     private String address;
     //相片位置
     private String photoPath;
+
+    private Long resumeId;
 }

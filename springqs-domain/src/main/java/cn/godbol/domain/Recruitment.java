@@ -27,8 +27,9 @@ public class Recruitment extends BaseModel{
     private String responsibility;
     //工作要求
     private String requirement;
-    //招聘渠道
-    private String type;
+    //招聘团队
+    private String team;
+    private Integer status;
 //    @ManyToMany(mappedBy = "recruitments")
 //    private Collection<Resume> resumes;
     @OneToMany(mappedBy = "recruitment")

@@ -33,9 +33,11 @@ public class UserDTO {
     //身份证号
     private String idcard;
 
-    private Character sex;
+    private Integer sex;
 
     private Date birthday;
 
     private Collection<ResumeDTO> resumes;
+
+    private UserDetailDTO userDetai;
 }

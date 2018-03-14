@@ -16,7 +16,7 @@ import java.util.Arrays;
  * Created by li on 17-3-12.
  */
 @Slf4j
-@Aspect
+//@Aspect
 public class LoggingAspect {
 
     @Inject

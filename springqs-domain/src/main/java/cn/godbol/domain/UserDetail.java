@@ -22,5 +22,7 @@ public class UserDetail extends BaseModel {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(length = 50)
+    private String openId;
 
 }

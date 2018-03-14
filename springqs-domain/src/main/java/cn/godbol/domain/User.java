@@ -35,7 +35,7 @@ public class User extends BaseModel /*implements UserApi*/{
     //身份证号
     private String idcard;
 
-    private Character sex;
+    private Integer sex;
     //出生日期
     @Temporal(TemporalType.DATE)
     private Date birthday;
@@ -49,7 +49,7 @@ public class User extends BaseModel /*implements UserApi*/{
     @OneToOne(mappedBy = "user")
     private UserDetail userDetail;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private Collection<Resume> resumes;
 
 }

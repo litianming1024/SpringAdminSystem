@@ -20,12 +20,12 @@ public class BasicInfo extends BaseModel {
     private String idcard;
     //电话
     private String tel;
-    private Character sex;
+    private long sex;
     //出生日期
     @Temporal(TemporalType.DATE)
     private Date birthday;
     //婚姻状况
-    private String marry;
+//    private String marry;
     private String email;
     //期望薪资
     private String salary;

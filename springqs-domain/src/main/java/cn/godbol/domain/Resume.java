@@ -14,7 +14,7 @@ import java.util.Collection;
 @Table
 @Getter @Setter
 public class Resume extends BaseModel{
-    @OneToOne(mappedBy = "resume")
+    @OneToOne(mappedBy = "resume",cascade = CascadeType.ALL)
     private BasicInfo basicInfo;
     @OneToMany(mappedBy = "resume")
     private Collection<Education> educations;
@@ -26,7 +26,7 @@ public class Resume extends BaseModel{
     @OneToMany(mappedBy = "resume")
     private Collection<Apply> applies;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private User user;
 }
