@@ -16,13 +16,15 @@ public interface ApplyMapper {
 
     @Mappings({
             @Mapping(source = "resume.id", target = "resumeId"),
-            @Mapping(source = "recruitment.id", target = "recruitmentId")
+            @Mapping(source = "recruitment.id", target = "recruitmentId"),
+            @Mapping(source = "recruitment.name", target = "recruitmentName"),
+            @Mapping(source = "resume.basicInfo.name", target = "basicInfoName")
     })
     ApplyDTO applyToApplyDTO(Apply apply);
 
     @Mappings({
             @Mapping(source = "resumeId", target = "resume.id"),
-            @Mapping(source = "recruitmentId", target = "recruitment.id")
+            @Mapping(source = "recruitmentId", target = "recruitment.id"),
     })
     Apply applyDTOToApply(ApplyDTO applyDTO);
 
