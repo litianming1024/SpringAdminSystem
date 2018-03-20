@@ -17,16 +17,16 @@ import java.util.Date;
 public class Education extends BaseModel{
     //入校时间
     @Temporal(TemporalType.DATE)
-    private Date educationStartTime;
+    private Date startTime;
     //毕业时间
     @Temporal(TemporalType.DATE)
-    private Date educationEndTime;
+    private Date endTime;
     //学校
     private String schoolName;
     //学历
     private String education;
     //学位
-//    private String degree;
+    private int degree;
     //专业
     private String major;
 

@@ -1,6 +1,5 @@
 package cn.godbol.dto;
 
-import cn.godbol.domain.enumvalue.ApplyStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,11 +10,19 @@ import java.util.Collection;
  */
 @Getter @Setter
 public class ApplyDTO {
-    private ResumeDTO resume;
+//    private ResumeDTO resume;
 
-    private RecruitmentDTO recruitment;
+//    private RecruitmentDTO recruitment;
+    private long id;
+
+    private long resumeId;
+    private long recruitmentId;
+
+    private String recruitmentName;
+    private String basicInfoName;
 
     private Collection<AppointmentDTO> appointments;
     //投递状态
-    private ApplyStatus applyStatus;
+//    private ApplyStatus applyStatus;
+    private int applyStatus;
 }

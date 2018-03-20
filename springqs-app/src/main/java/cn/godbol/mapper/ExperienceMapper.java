@@ -18,7 +18,7 @@ public interface ExperienceMapper {
     })
     ExperienceDTO experienceToExperienceDTO(Experience experience);
 
-    Collection<ExperienceDTO> groupsToExperienceDTOs(Collection<Experience> experiences);
+    Collection<ExperienceDTO> experiencesToExperienceDTOs(Collection<Experience> experiences);
 
     @Mappings({
             @Mapping(source = "resumeId", target = "resume.id")

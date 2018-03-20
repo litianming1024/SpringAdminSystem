@@ -9,7 +9,10 @@ import java.util.Collection;
 /**
  * Created by li on 2018-01-13 下午11:12.
  */
-@Mapper(componentModel = "spring", uses = {BasicInfoMapper.class})
+@Mapper(componentModel = "spring", uses = {
+        BasicInfoMapper.class,
+        ExperienceMapper.class,
+        EducationMapper.class})
 public interface ResumeMapper {
     ResumeDTO resumeToResumeDTO(Resume resume);
     Resume resumeDTOToResume(ResumeDTO resumeDTO);

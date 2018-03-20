@@ -39,5 +39,5 @@ public class UserDTO {
 
     private Collection<ResumeDTO> resumes;
 
-    private UserDetailDTO userDetai;
+    private UserDetailDTO userDetail;
 }

@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * Created by li on 2017-12-26 下午4:04.
@@ -14,19 +15,19 @@ import java.util.Collection;
 @Table
 @Getter @Setter
 public class Resume extends BaseModel{
-    @OneToOne(mappedBy = "resume",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "resume", cascade = {CascadeType.ALL})
     private BasicInfo basicInfo;
-    @OneToMany(mappedBy = "resume")
-    private Collection<Education> educations;
-    @OneToMany(mappedBy = "resume")
-    private Collection<Experience> experiences;
+    @OneToMany(mappedBy = "resume", cascade = {CascadeType.ALL})
+    private Collection<Education> educations = new HashSet<>();
+    @OneToMany(mappedBy = "resume", cascade = {CascadeType.ALL})
+    private Collection<Experience> experiences = new HashSet<>();
 //    @ManyToMany
 //    @JoinTable(name = "apply", joinColumns = @JoinColumn(name = "resume_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "recruitment_id", referencedColumnName = "id"))
 //    private Collection<Recruitment> recruitments;
     @OneToMany(mappedBy = "resume")
     private Collection<Apply> applies;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 }

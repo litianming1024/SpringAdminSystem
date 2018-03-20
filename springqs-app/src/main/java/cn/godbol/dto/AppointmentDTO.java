@@ -1,27 +1,27 @@
 package cn.godbol.dto;
 
-import cn.godbol.domain.enumvalue.InterviewMethod;
-import cn.godbol.domain.enumvalue.InterviewType;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 /**
  * Created by li on 2018-01-13 下午9:56.
  */
 @Getter @Setter
 public class AppointmentDTO {
-    private Long id;
-    private ApplyDTO apply;
+    private long id;
+    private long applyId;
     //预约面试时间
-    private Date interviewTime;
+    private Calendar interviewTime;
+    private int applyStatus;
     //签到
     private Boolean result;
     //面试方式
-    private InterviewMethod interviewMethod;
+//    private InterviewMethod interviewMethod;
     //面试评价
     private String comment;
     //面试类型
-    private InterviewType interviewType;
+//    private InterviewType interviewType;
 }

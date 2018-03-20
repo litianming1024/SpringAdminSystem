@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 @MappedSuperclass
@@ -22,11 +23,11 @@ public abstract class BaseModel implements Comparable<BaseModel>,Serializable {
 
     @CreatedDate
     @Temporal(TemporalType.DATE)
-    protected Date createDate;
+    protected Calendar createDate;
 
     @LastModifiedDate
     @Temporal(TemporalType.DATE)
-    protected Date updateDate;
+    protected Calendar updateDate;
 
     @Override
     public int compareTo(BaseModel o) {

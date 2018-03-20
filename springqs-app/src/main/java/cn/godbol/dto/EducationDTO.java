@@ -12,15 +12,17 @@ import java.util.Date;
 @Setter
 public class EducationDTO {
     private Long id;
-    private Date educationStartTime;
+    private Date startTime;
     //毕业时间
-    private Date educationEndTime;
+    private Date endTime;
     //学校
     private String schoolName;
     //学历
     private String education;
     //学位
-    private String degree;
+    private int degree;
     //专业
     private String major;
+
+    private long resumeId;
 }

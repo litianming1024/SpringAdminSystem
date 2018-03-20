@@ -1,6 +1,5 @@
 package cn.godbol.domain;
 
-import cn.godbol.domain.enumvalue.ApplyStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +26,7 @@ public class Apply extends BaseModel {
     @OneToMany(mappedBy = "apply")
     private Collection<Appointment> appointments;
     //投递状态
-    @Enumerated(EnumType.STRING)
-    private ApplyStatus applyStatus;
+//    @Enumerated(EnumType.ORDINAL)
+//    private ApplyStatus applyStatus;
+    private int applyStatus = 0;
 }

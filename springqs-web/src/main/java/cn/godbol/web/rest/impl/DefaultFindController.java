@@ -21,7 +21,7 @@ public interface DefaultFindController<T, ID extends Serializable, Q extends Ser
         if (param instanceof QueryParam){
             QueryParam queryParam = (QueryParam)param;
 //            return getService().findAll(queryParam.toPageRequest());
-            return ResponseMessage.ok(getService().findAll(queryParam.toPageRequest()).map(entity->entityToDTO(entity)));
+            return ResponseMessage.ok(getService().findAll(queryParam.toPageRequest()).map(this::entityToDTO));
         }else {
             //TODO 这里要抛QueryException
             return null;

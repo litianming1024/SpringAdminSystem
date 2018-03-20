@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * Created by li on 2018-01-13 下午10:49.
  */
 @Service
-public class EducationServiceImpl implements EducationService, DefaultCrudService<Education, Long> {
+public class EducationServiceImpl implements EducationService {
     @Autowired
     EducationRepository educationRepository;
 

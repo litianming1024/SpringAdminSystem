@@ -1,12 +1,12 @@
 package cn.godbol.domain;
 
-import cn.godbol.domain.enumvalue.InterviewMethod;
-import cn.godbol.domain.enumvalue.InterviewType;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
+
 
 /**
  * Created by li on 2017-12-29 下午6:39.
@@ -20,17 +20,17 @@ public class Appointment extends BaseModel {
     @ManyToOne
     private Apply apply;
     //预约面试时间
-    @Temporal(TemporalType.DATE)
-    private Date interviewTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar interviewTime;
     //签到
-    private Boolean result;
+    private Boolean result = false;
     //面试方式
-    @Enumerated(EnumType.STRING)
-    private InterviewMethod interviewMethod;
+//    @Enumerated(EnumType.ORDINAL)
+//    private InterviewMethod interviewMethod;
     //面试评价
     private String comment;
     //面试类型
-    @Enumerated(EnumType.STRING)
-    private InterviewType interviewType;
+//    @Enumerated(EnumType.ORDINAL)
+//    private InterviewType interviewType;
 
 }
