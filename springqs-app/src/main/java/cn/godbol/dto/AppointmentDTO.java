@@ -12,11 +12,12 @@ import java.util.Calendar;
 public class AppointmentDTO {
     private long id;
     private long applyId;
+    private long resumeId;
     //预约面试时间
     private Calendar interviewTime;
     private int applyStatus;
     //签到
-    private Boolean result;
+//    private Boolean result;
     //面试方式
 //    private InterviewMethod interviewMethod;
     //面试评价

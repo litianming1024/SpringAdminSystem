@@ -17,6 +17,7 @@ public interface AppointmentMapper {
     @Mappings({
             @Mapping(source = "apply.id", target = "applyId"),
             @Mapping(source = "apply.applyStatus", target = "applyStatus"),
+            @Mapping(source = "apply.resume.id", target = "resumeId")
     })
     AppointmentDTO appointmentToAppointmentDTO(Appointment appointment);
 

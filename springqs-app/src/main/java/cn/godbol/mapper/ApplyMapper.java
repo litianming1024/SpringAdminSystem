@@ -25,6 +25,8 @@ public interface ApplyMapper {
     @Mappings({
             @Mapping(source = "resumeId", target = "resume.id"),
             @Mapping(source = "recruitmentId", target = "recruitment.id"),
+//            @Mapping(target = "resume", ignore = true),
+//            @Mapping(target = "recruitment", ignore = true)
     })
     Apply applyDTOToApply(ApplyDTO applyDTO);
 

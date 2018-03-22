@@ -23,7 +23,7 @@ public class Apply extends BaseModel {
     @JoinColumn(name = "recruitment_id")
     private Recruitment recruitment;
 
-    @OneToMany(mappedBy = "apply")
+    @OneToMany(mappedBy = "apply", cascade = {CascadeType.ALL})
     private Collection<Appointment> appointments;
     //投递状态
 //    @Enumerated(EnumType.ORDINAL)

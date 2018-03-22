@@ -23,7 +23,7 @@ public class Appointment extends BaseModel {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar interviewTime;
     //签到
-    private Boolean result = false;
+//    private Boolean result = false;
     //面试方式
 //    @Enumerated(EnumType.ORDINAL)
 //    private InterviewMethod interviewMethod;
