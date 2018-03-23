@@ -12,7 +12,8 @@ import java.util.Collection;
 @Mapper(componentModel = "spring", uses = {
         BasicInfoMapper.class,
         ExperienceMapper.class,
-        EducationMapper.class})
+        EducationMapper.class,
+        ApplyMapper.class})
 public interface ResumeMapper {
     ResumeDTO resumeToResumeDTO(Resume resume);
     Resume resumeDTOToResume(ResumeDTO resumeDTO);

@@ -13,4 +13,6 @@ import java.util.Collection;
 public interface AppointmentService extends DefaultCrudService<Appointment, Long> {
     Page<Appointment> findAppointmentByApplyStatus(Collection<Integer> applyStatus, Pageable pageable);
     Appointment findLatest(Long id);
+
+    Appointment findByApplyIdAndInterviewType(Long applyId, Integer interviewType);
 }

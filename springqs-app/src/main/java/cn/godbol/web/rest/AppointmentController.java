@@ -46,8 +46,12 @@ public class AppointmentController implements DefaultCrudController<Appointment,
         return ResponseMessage.ok(appointmentService.findAppointmentByApplyStatus(applyStatus, queryParam.toPageRequest()).map(this::entityToDTO));
     }
 
-    @GetMapping("/apply/{id}")
-    public ResponseMessage findLatest(@PathVariable Long id) {
-        return ResponseMessage.ok(entityToDTO(appointmentService.findLatest(id)));
+//    @GetMapping("/apply/{id}")
+//    public ResponseMessage findLatest(@PathVariable Long id) {
+//        return ResponseMessage.ok(entityToDTO(appointmentService.findLatest(id)));
+//    }
+    @GetMapping("/applyAndInterview")
+    public ResponseMessage findByApplyIdAndInterviewType(@RequestParam long applyId, @RequestParam int interviewType) {
+        return ResponseMessage.ok(entityToDTO(appointmentService.findByApplyIdAndInterviewType(applyId, interviewType)));
     }
 }

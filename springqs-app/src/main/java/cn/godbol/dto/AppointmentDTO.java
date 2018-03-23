@@ -24,4 +24,5 @@ public class AppointmentDTO {
     private String comment;
     //面试类型
 //    private InterviewType interviewType;
+    private int interviewType;
 }

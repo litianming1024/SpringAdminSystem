@@ -39,4 +39,9 @@ public class AppointmentServiceImpl implements AppointmentService {
     public Appointment findLatest(Long id) {
         return appointmentRepository.findByApplyIdOrderByApplyDesc(id);
     }
+
+    @Override
+    public Appointment findByApplyIdAndInterviewType(Long applyId, Integer interviewType) {
+        return appointmentRepository.findByApplyIdAndInterviewType(applyId, interviewType);
+    }
 }

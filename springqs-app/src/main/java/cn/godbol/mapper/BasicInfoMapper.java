@@ -18,7 +18,7 @@ public interface BasicInfoMapper {
     })
     BasicInfoDTO basicInfoToBasicInfoDTO(BasicInfo basicInfo);
 
-    Collection<BasicInfoDTO> basicInfoiesToBasicInfoDTOs(Collection<BasicInfo> basicInfos);
+//    Collection<BasicInfoDTO> basicInfoiesToBasicInfoDTOs(Collection<BasicInfo> basicInfos);
 
 
     @Mappings({
@@ -26,5 +26,5 @@ public interface BasicInfoMapper {
     })
     BasicInfo basicInfoDTOToBasicInfo(BasicInfoDTO basicInfoDTO);
 
-    Collection<BasicInfo> basicInfoDTOsToBasicInfos(Collection<BasicInfoDTO> basicInfoDTOs);
+//    Collection<BasicInfo> basicInfoDTOsToBasicInfos(Collection<BasicInfoDTO> basicInfoDTOs);
 }

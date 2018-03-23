@@ -32,5 +32,5 @@ public class Appointment extends BaseModel {
     //面试类型
 //    @Enumerated(EnumType.ORDINAL)
 //    private InterviewType interviewType;
-
+    private int interviewType;
 }
