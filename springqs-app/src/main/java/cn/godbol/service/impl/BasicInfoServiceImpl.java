@@ -2,10 +2,9 @@ package cn.godbol.service.impl;
 
 import cn.godbol.domain.BasicInfo;
 import cn.godbol.domain.Resume;
-import cn.godbol.repository.BasicInfoRepository;
-import cn.godbol.repository.ResumeRepository;
+import cn.godbol.domain.repository.BasicInfoRepository;
+import cn.godbol.domain.repository.ResumeRepository;
 import cn.godbol.service.api.BasicInfoService;
-import cn.godbol.service.defaultmethod.DefaultCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;

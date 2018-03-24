@@ -1,8 +1,8 @@
 package cn.godbol.web.rest;
 
 import cn.godbol.domain.Appointment;
-import cn.godbol.dto.AppointmentDTO;
-import cn.godbol.mapper.AppointmentMapper;
+import cn.godbol.domain.dto.AppointmentDTO;
+import cn.godbol.domain.mapper.AppointmentMapper;
 import cn.godbol.message.ResponseMessage;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.AppointmentService;

@@ -1,7 +1,7 @@
 package cn.godbol.service.impl;
 
 
-import cn.godbol.repository.UserRepository;
+import cn.godbol.domain.repository.UserRepository;
 import cn.godbol.service.defaultmethod.DefaultCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

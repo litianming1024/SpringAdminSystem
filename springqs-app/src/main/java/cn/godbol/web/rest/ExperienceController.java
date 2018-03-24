@@ -1,8 +1,8 @@
 package cn.godbol.web.rest;
 
 import cn.godbol.domain.Experience;
-import cn.godbol.dto.ExperienceDTO;
-import cn.godbol.mapper.ExperienceMapper;
+import cn.godbol.domain.dto.ExperienceDTO;
+import cn.godbol.domain.mapper.ExperienceMapper;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;
 import cn.godbol.service.api.ExperienceService;

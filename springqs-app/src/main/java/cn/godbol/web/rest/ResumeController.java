@@ -2,8 +2,8 @@ package cn.godbol.web.rest;
 
 
 import cn.godbol.domain.Resume;
-import cn.godbol.dto.ResumeDTO;
-import cn.godbol.mapper.ResumeMapper;
+import cn.godbol.domain.dto.ResumeDTO;
+import cn.godbol.domain.mapper.ResumeMapper;
 import cn.godbol.message.ResponseMessage;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;

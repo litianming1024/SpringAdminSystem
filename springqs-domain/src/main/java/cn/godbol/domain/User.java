@@ -46,7 +46,7 @@ public class User extends BaseModel /*implements UserApi*/{
             inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"))
     private Collection<Group> groups;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserDetail userDetail;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)

@@ -1,12 +1,12 @@
 package cn.godbol.web.rest;
 
 import cn.godbol.domain.User;
-import cn.godbol.dto.UserDTO;
-import cn.godbol.mapper.UserMapper;
+
+import cn.godbol.domain.dto.UserDTO;
+import cn.godbol.domain.mapper.UserMapper;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;
 //import cn.godbol.mapper.UserMapper;
-import cn.godbol.service.api.UserService;
 import cn.godbol.service.impl.UserServiceImpl;
 import cn.godbol.web.rest.impl.DefaultCrudController;
 import lombok.extern.slf4j.Slf4j;

@@ -1,8 +1,9 @@
 package cn.godbol.web.rest;
 
 import cn.godbol.domain.Recruitment;
-import cn.godbol.dto.RecruitmentDTO;
-import cn.godbol.mapper.RecruitmentMapper;
+
+import cn.godbol.domain.dto.RecruitmentDTO;
+import cn.godbol.domain.mapper.RecruitmentMapper;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;
 import cn.godbol.service.api.RecruitmentService;

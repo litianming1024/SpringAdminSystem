@@ -1,9 +1,8 @@
 package cn.godbol.service.impl;
 
 import cn.godbol.domain.Appointment;
-import cn.godbol.repository.AppointmentRepository;
+import cn.godbol.domain.repository.AppointmentRepository;
 import cn.godbol.service.api.AppointmentService;
-import cn.godbol.service.defaultmethod.DefaultCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

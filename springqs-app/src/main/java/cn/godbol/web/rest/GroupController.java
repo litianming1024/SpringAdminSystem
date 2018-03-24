@@ -1,8 +1,8 @@
 package cn.godbol.web.rest;
 
 import cn.godbol.domain.Group;
-import cn.godbol.dto.GroupDTO;
-import cn.godbol.mapper.GroupMapper;
+import cn.godbol.domain.dto.GroupDTO;
+import cn.godbol.domain.mapper.GroupMapper;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;
 import cn.godbol.service.impl.GroupServiceImpl;

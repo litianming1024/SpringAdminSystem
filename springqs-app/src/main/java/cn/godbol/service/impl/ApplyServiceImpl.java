@@ -1,7 +1,7 @@
 package cn.godbol.service.impl;
 
 import cn.godbol.domain.Apply;
-import cn.godbol.repository.ApplyRepository;
+import cn.godbol.domain.repository.ApplyRepository;
 import cn.godbol.service.api.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,8 @@
 package cn.godbol.jwt.service;
 
 import cn.godbol.domain.Authority;
-import cn.godbol.jwt.repository.api.AuthorityRepositoryApi;
+import cn.godbol.domain.repository.AuthorityRepository;
+import cn.godbol.domain.repository.api.AuthorityRepositoryApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -22,7 +23,7 @@ import java.util.*;
 public class SecurityInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     @Autowired
-    private AuthorityRepositoryApi authorityRepository;
+    private AuthorityRepository authorityRepository;
 
     private Map<String, Collection<ConfigAttribute>> resourceMap = null;
 

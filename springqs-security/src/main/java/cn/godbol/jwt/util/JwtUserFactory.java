@@ -1,7 +1,6 @@
 package cn.godbol.jwt.util;
 
-import cn.godbol.domain.JwtUser;
-import cn.godbol.domain.api.UserApi;
+import cn.godbol.jwt.api.UserApi;
 
 /**
  * Created by li on 2017-12-22 下午1:13.

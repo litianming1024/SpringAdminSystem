@@ -1,7 +1,7 @@
 package cn.godbol.service.impl;
 
 import cn.godbol.domain.Experience;
-import cn.godbol.repository.ExperienceRepository;
+import cn.godbol.domain.repository.ExperienceRepository;
 import cn.godbol.service.api.ExperienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

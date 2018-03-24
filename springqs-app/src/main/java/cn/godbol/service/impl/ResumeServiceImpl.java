@@ -1,11 +1,9 @@
 package cn.godbol.service.impl;
 
-import cn.godbol.domain.BasicInfo;
-import cn.godbol.domain.Group;
 import cn.godbol.domain.Resume;
 import cn.godbol.domain.User;
-import cn.godbol.repository.ResumeRepository;
-import cn.godbol.repository.UserRepository;
+import cn.godbol.domain.repository.ResumeRepository;
+import cn.godbol.domain.repository.UserRepository;
 import cn.godbol.service.api.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

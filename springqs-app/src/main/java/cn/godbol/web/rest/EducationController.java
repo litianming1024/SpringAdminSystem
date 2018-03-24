@@ -1,8 +1,8 @@
 package cn.godbol.web.rest;
 
 import cn.godbol.domain.Education;
-import cn.godbol.dto.EducationDTO;
-import cn.godbol.mapper.EducationMapper;
+import cn.godbol.domain.dto.EducationDTO;
+import cn.godbol.domain.mapper.EducationMapper;
 import cn.godbol.query.QueryParam;
 import cn.godbol.service.api.CrudService;
 import cn.godbol.service.api.EducationService;

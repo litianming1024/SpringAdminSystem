@@ -1,7 +1,7 @@
 package cn.godbol.service.impl;
 
 import cn.godbol.domain.Group;
-import cn.godbol.repository.GroupRepository;
+import cn.godbol.domain.repository.GroupRepository;
 import cn.godbol.service.api.GroupService;
 import cn.godbol.service.defaultmethod.DefaultCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
