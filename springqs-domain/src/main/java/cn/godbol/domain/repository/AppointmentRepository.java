@@ -17,7 +17,9 @@ import java.util.Collection;
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
     @Query("SELECT ap FROM Appointment ap, Apply apply WHERE ap.apply = apply AND apply.applyStatus in :applyStatus")
     Page<Appointment> findAppointmentByApplyStatus(@Param("applyStatus") Collection<Integer> applyStatus, Pageable pageable);
+
     Appointment findByApplyIdOrderByApplyDesc(Long id);
 
     Appointment findByApplyIdAndInterviewType(Long applyId, Integer interviewType);
+
 }

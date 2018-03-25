@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by li on 2018-01-13 下午9:56.
@@ -25,4 +26,7 @@ public class AppointmentDTO {
     //面试类型
 //    private InterviewType interviewType;
     private int interviewType;
+    private Calendar presentTime;
+    private String place;
+    private int status = 0;
 }

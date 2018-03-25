@@ -1,9 +1,12 @@
 package cn.godbol.domain.dto;
 
+import cn.godbol.domain.Appointment;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by li on 2018-01-13 下午9:55.
@@ -21,8 +24,10 @@ public class ApplyDTO {
     private String recruitmentName;
     private String basicInfoName;
 
-    private Collection<AppointmentDTO> appointments;
+    private List<AppointmentDTO> appointments;
     //投递状态
 //    private ApplyStatus applyStatus;
     private int applyStatus;
+
+    private AppointmentDTO latestAppointment;
 }

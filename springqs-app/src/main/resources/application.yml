@@ -10,7 +10,7 @@ spring:
     password: mysqlroot
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 logging:
   level:
@@ -28,3 +28,10 @@ security:
     enabled: false
 storage:
   uploadPath=file:./upload
+
+wechat:
+  mp:
+    appId: wxb21b41f0c6415294
+    secret: e86f3561a68ae8bc2ebccf2000c02a21
+    token: scan
+    aesKey:

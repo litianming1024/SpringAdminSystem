@@ -20,7 +20,7 @@ import static me.chanjar.weixin.common.api.WxConsts.MenuButtonType;
  *
  */
 @RestController
-@RequestMapping("/api/wexin/menu")
+@RequestMapping("/api/wechat/menu")
 public class WxMenuController implements WxMpMenuService {
 
   @Autowired
@@ -38,7 +38,7 @@ public class WxMenuController implements WxMpMenuService {
    * @return 如果是个性化菜单，则返回menuid，否则返回null
    */
   @Override
-  @PostMapping("/create")
+  @PostMapping
   public String menuCreate(@RequestBody WxMenu menu) throws WxErrorException {
     return this.wxService.getMenuService().menuCreate(menu);
   }
@@ -137,7 +137,7 @@ public class WxMenuController implements WxMpMenuService {
    * </pre>
    */
   @Override
-  @GetMapping("/get")
+  @GetMapping
   public WxMpMenu menuGet() throws WxErrorException {
     return this.wxService.getMenuService().menuGet();
   }

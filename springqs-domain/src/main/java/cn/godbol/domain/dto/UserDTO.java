@@ -37,4 +37,5 @@ public class UserDTO {
     private Collection<ResumeDTO> resumes;
 
     private UserDetailDTO userDetail;
+    private String openId;
 }

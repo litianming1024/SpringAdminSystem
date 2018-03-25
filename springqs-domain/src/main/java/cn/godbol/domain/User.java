@@ -20,10 +20,10 @@ public class User extends BaseModel /*implements UserApi*/{
 
     @Column(length = 30)
     private String password;
-    private boolean accountNonExpired;
-    private boolean accountNonLocked;
-    private boolean credentialsNonExpired;
-    private boolean enabled;
+    private boolean accountNonExpired = true;
+    private boolean accountNonLocked = true;
+    private boolean credentialsNonExpired = true;
+    private boolean enabled = true;
 
     @Column(length = 50)
     private String email;
@@ -52,4 +52,5 @@ public class User extends BaseModel /*implements UserApi*/{
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private Collection<Resume> resumes;
 
+    private String openId;
 }

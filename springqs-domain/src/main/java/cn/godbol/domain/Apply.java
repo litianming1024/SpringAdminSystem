@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by li on 2017-12-29 下午3:32.
@@ -24,7 +26,7 @@ public class Apply extends BaseModel {
     private Recruitment recruitment;
 
     @OneToMany(mappedBy = "apply", cascade = {CascadeType.ALL})
-    private Collection<Appointment> appointments;
+    private List<Appointment> appointments;
     //投递状态
 //    @Enumerated(EnumType.ORDINAL)
 //    private ApplyStatus applyStatus;

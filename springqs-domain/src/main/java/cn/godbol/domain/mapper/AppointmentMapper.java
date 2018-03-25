@@ -7,6 +7,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by li on 2018-03-20 下午6:57.
@@ -21,7 +22,7 @@ public interface AppointmentMapper {
     })
     AppointmentDTO appointmentToAppointmentDTO(Appointment appointment);
 
-    Collection<AppointmentDTO> appointmentsToAppointmentDTOs(Collection<Appointment> appointments);
+    List<AppointmentDTO> appointmentsToAppointmentDTOs(List<Appointment> appointments);
 
     @Mappings({
             @Mapping(source = "applyId", target = "apply.id"),

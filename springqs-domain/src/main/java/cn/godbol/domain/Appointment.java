@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -22,15 +23,21 @@ public class Appointment extends BaseModel {
     //预约面试时间
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar interviewTime;
-    //签到
-//    private Boolean result = false;
+
+    //签到时间
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar presentTime;
+
     //面试方式
 //    @Enumerated(EnumType.ORDINAL)
 //    private InterviewMethod interviewMethod;
     //面试评价
     private String comment;
     //面试类型
-//    @Enumerated(EnumType.ORDINAL)
-//    private InterviewType interviewType;
     private int interviewType;
+
+    //面试地点
+    private String place;
+
+    private int status;
 }
