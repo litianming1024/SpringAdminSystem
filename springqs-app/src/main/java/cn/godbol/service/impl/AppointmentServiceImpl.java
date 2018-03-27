@@ -43,4 +43,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     public Appointment findByApplyIdAndInterviewType(Long applyId, Integer interviewType) {
         return appointmentRepository.findByApplyIdAndInterviewType(applyId, interviewType);
     }
+
+    public Page<Appointment> findAppointmentsByInterviewTypeAndStatus(int interviewType, int status, Pageable pageable) {
+        return appointmentRepository.findAppointmentsByInterviewTypeAndStatus(interviewType, status, pageable);
+    }
 }

@@ -60,7 +60,9 @@ public interface ApplyMapper {
         });
         applyDTO.setAppointments(appointments);
         applyDTO.setApplyStatus(apply.getApplyStatus());
-        applyDTO.setLatestAppointment(appointments.get(0));
+        if (appointments.size() > 0) {
+            applyDTO.setLatestAppointment(appointments.get(0));
+        }
         return applyDTO;
     }
 

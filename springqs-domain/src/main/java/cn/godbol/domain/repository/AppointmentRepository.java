@@ -22,4 +22,5 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 
     Appointment findByApplyIdAndInterviewType(Long applyId, Integer interviewType);
 
+    Page<Appointment> findAppointmentsByInterviewTypeAndStatus(int interviewType, int status, Pageable pageable);
 }

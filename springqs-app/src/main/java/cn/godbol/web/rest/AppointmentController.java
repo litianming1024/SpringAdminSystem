@@ -26,6 +26,7 @@ public class AppointmentController implements DefaultCrudController<Appointment,
     @Autowired
     AppointmentMapper appointmentMapper;
 
+
     @Override
     public CrudService<Appointment, Long> getService() {
         return appointmentService;
@@ -53,5 +54,9 @@ public class AppointmentController implements DefaultCrudController<Appointment,
     @GetMapping("/applyAndInterview")
     public ResponseMessage findByApplyIdAndInterviewType(@RequestParam long applyId, @RequestParam int interviewType) {
         return ResponseMessage.ok(entityToDTO(appointmentService.findByApplyIdAndInterviewType(applyId, interviewType)));
+    }
+    @GetMapping("/needToInterview")
+    public ResponseMessage findAppointmentsByInterviewTypeAndStatus(QueryParam queryParam, @RequestParam int interviewType, @RequestParam int status) {
+        return ResponseMessage.ok(appointmentService.findAppointmentsByInterviewTypeAndStatus(interviewType, status, queryParam.toPageRequest()).map(this::entityToDTO));
     }
 }

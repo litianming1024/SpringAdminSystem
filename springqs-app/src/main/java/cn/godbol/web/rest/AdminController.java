@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by Li on 2016/10/23.
  */
-@Controller
-@RequestMapping("/admin")
-public class AdminController {
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public void index(HttpServletRequest request){
-        return;
-    }
-
-//    @RequestMapping(RequestMethod.POST)
-//    public void test()
-}
+//@Controller
+//@RequestMapping("/admin")
+//public class AdminController {
+//    @RequestMapping(value = "/index", method = RequestMethod.GET)
+//    public void index(HttpServletRequest request){
+//        return;
+//    }
+//
+////    @RequestMapping(RequestMethod.POST)
+////    public void test()
+//}

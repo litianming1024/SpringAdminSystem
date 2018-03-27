@@ -1,5 +1,6 @@
 package cn.godbol.controller;
 
+import cn.godbol.message.ResponseMessage;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
 import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import me.chanjar.weixin.common.exception.WxErrorException;
@@ -136,8 +137,12 @@ public class WxMenuController implements WxMpMenuService {
    * 详情请见： https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141014&token=&lang=zh_CN
    * </pre>
    */
-  @Override
   @GetMapping
+  public ResponseMessage getMenu() throws WxErrorException {
+    return ResponseMessage.ok(this.wxService.getMenuService().menuGet());
+  }
+  @Override
+  @GetMapping("/get")
   public WxMpMenu menuGet() throws WxErrorException {
     return this.wxService.getMenuService().menuGet();
   }

@@ -38,6 +38,12 @@ public class Appointment extends BaseModel {
 
     //面试地点
     private String place;
+//    @OneToOne
+//    @JoinColumn
+//    private InterviewPlace interviewPlace;
+    private int status = 0;
 
-    private int status;
+//    @OneToOne
+//    @JoinColumn
+//    private User interviewer;
 }

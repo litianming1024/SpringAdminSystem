@@ -55,7 +55,9 @@ public class SecurityUserDetailService implements UserDetailsService{
     private JwtUser createJwtUser(User user) {
         return new JwtUser(user.getUsername(), user.getPassword(),
                 user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(),
-                user.isAccountNonLocked(), getAuthorities(user.getGroups()));
+                user.isAccountNonLocked()
+//                , getAuthorities(user.getGroups()));
+                ,null);
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Collection<Group> groups) {

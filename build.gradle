@@ -54,7 +54,7 @@ subprojects {
 		compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:+')
 		compile('org.springframework.boot:spring-boot-starter-remote-shell:+')
 		compile('org.springframework.boot:spring-boot-starter-security:+')
-		compile('org.springframework.boot:spring-boot-starter-thymeleaf:+')
+//		compile('org.springframework.boot:spring-boot-starter-thymeleaf:+')
 		compile('org.springframework.boot:spring-boot-starter-web:+')
 		compile('org.slf4j:slf4j-api:+')
 		compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')

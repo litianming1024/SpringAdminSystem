@@ -28,5 +28,6 @@ public class AppointmentDTO {
     private int interviewType;
     private Calendar presentTime;
     private String place;
-    private int status = 0;
+    private int status;
+    private String basicInfoName;
 }
