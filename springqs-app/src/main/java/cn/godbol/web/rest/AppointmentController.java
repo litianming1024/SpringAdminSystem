@@ -59,4 +59,14 @@ public class AppointmentController implements DefaultCrudController<Appointment,
     public ResponseMessage findAppointmentsByInterviewTypeAndStatus(QueryParam queryParam, @RequestParam int interviewType, @RequestParam int status) {
         return ResponseMessage.ok(appointmentService.findAppointmentsByInterviewTypeAndStatus(interviewType, status, queryParam.toPageRequest()).map(this::entityToDTO));
     }
+
+    @GetMapping("/findByStatus")
+    public ResponseMessage findAppointmentsByStatus(QueryParam queryParam, @RequestParam(name = "status[]") Collection<Integer> status) {
+        return ResponseMessage.ok(appointmentService.findAppointmentsByStatus(status, queryParam.toPageRequest()).map(this::entityToDTO));
+    }
+
+    @GetMapping("/countByStatus")
+    public ResponseMessage countAllByStatus(@RequestParam(name = "status[]") Collection<Integer> status) {
+        return ResponseMessage.ok(appointmentService.countAllByStatus(status));
+    }
 }

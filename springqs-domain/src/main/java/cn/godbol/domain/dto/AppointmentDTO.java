@@ -30,4 +30,5 @@ public class AppointmentDTO {
     private String place;
     private int status;
     private String basicInfoName;
+    private String basicInfoTel;
 }

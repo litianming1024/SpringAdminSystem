@@ -47,4 +47,19 @@ public class AppointmentServiceImpl implements AppointmentService {
     public Page<Appointment> findAppointmentsByInterviewTypeAndStatus(int interviewType, int status, Pageable pageable) {
         return appointmentRepository.findAppointmentsByInterviewTypeAndStatus(interviewType, status, pageable);
     }
+
+    @Override
+    public Page<Appointment> findAppointmentsByStatus(Collection<Integer> status, Pageable pageable) {
+        return appointmentRepository.findAppointmentsByStatusIn(status, pageable);
+    }
+
+    @Override
+    public long countAllByStatus(Integer status) {
+        return appointmentRepository.countAllByStatus(status);
+    }
+
+    @Override
+    public long countAllByStatus(Collection<Integer> status) {
+        return appointmentRepository.countAllByStatus(status);
+    }
 }

@@ -10,7 +10,7 @@ import java.util.Collection;
 /**
  * Created by li on 17-2-28.
  */
-@Mapper(componentModel = "spring"/*, uses = {GroupMapper.class}*/)
+@Mapper(componentModel = "spring", uses = {ResumeMapper.class})
 public interface UserMapper {
 
     UserDTO userToUserDTO(User user);

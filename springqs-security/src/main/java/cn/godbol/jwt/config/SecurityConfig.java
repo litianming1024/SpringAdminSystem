@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                         "/**/*.js"
                 )
                 .permitAll()
-                .antMatchers("/api/auth/**", "/api/recruitment/**","/api/**","/wechat/**","/wechatfront/**", "/static/**").permitAll()
+                .antMatchers("/api/auth/**", "/api/recruitment/**","/api/**","/wechat/**","/wechatfront/**", "/static/**", "/adminfront/**").permitAll()
                 .anyRequest().permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)

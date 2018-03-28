@@ -1,10 +1,7 @@
 package cn.godbol.handler;
 
 import cn.godbol.domain.*;
-import cn.godbol.domain.repository.AppointmentRepository;
-import cn.godbol.domain.repository.QRcodeRepository;
-import cn.godbol.domain.repository.ResumeRepository;
-import cn.godbol.domain.repository.UserRepository;
+import cn.godbol.domain.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -34,6 +31,9 @@ public class ScanHandler extends AbstractHandler {
     QRcodeRepository qRcodeRepository;
 
     @Autowired
+    ApplyRepository applyRepository;
+
+    @Autowired
     AppointmentRepository appointmentRepository;
 
     @Autowired
@@ -44,10 +44,12 @@ public class ScanHandler extends AbstractHandler {
         String key = wxMessage.getEventKey();
         if (key.equals("signup")) {
             //用户可能存在什么资料都没有的情况
-            User user = userRepository.findByOpenId(wxMessage.getOpenId());
+            String openId = wxMessage.getFromUser();
+            User user = userRepository.findByOpenId(openId);
             if (user == null) return null;
             Collection<Apply> applies = resumeRepository.findByUserId(user.getId()).getApplies();
             Appointment latestAppointment = null;
+            Apply latestApply = null;
             for (Apply apply: applies) {
                 List<Appointment> appointments = apply.getAppointments();
                 appointments.sort(new Comparator<Appointment>() {
@@ -56,14 +58,17 @@ public class ScanHandler extends AbstractHandler {
                         return o2.getInterviewType() - o1.getInterviewType();
                     }
                 });
-                if (appointments.get(0).getInterviewType() == 0) {
+                if (appointments.size() > 0) {
+                    latestApply = apply;
                     latestAppointment = appointments.get(0);
                     break;
                 }
             }
             if (latestAppointment == null) return null;
-
-            latestAppointment.setStatus(1);
+            if (latestAppointment.getStatus() != 1) return null;
+            latestAppointment.setStatus(2);
+            latestApply.setApplyStatus(latestApply.getApplyStatus() + 1);
+            latestApply = applyRepository.save(latestApply);
             latestAppointment.setPresentTime(Calendar.getInstance());
             latestAppointment = appointmentRepository.save(latestAppointment);
             String ticket = wxMessage.getTicket();

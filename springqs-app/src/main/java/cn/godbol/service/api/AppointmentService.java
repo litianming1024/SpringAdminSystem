@@ -16,4 +16,9 @@ public interface AppointmentService extends DefaultCrudService<Appointment, Long
 
     Appointment findByApplyIdAndInterviewType(Long applyId, Integer interviewType);
     Page<Appointment> findAppointmentsByInterviewTypeAndStatus(int interviewType, int status, Pageable pageable);
+
+    Page<Appointment> findAppointmentsByStatus(Collection<Integer> status, Pageable pageable);
+
+    long countAllByStatus(Integer status);
+    long countAllByStatus(Collection<Integer> status);
 }
