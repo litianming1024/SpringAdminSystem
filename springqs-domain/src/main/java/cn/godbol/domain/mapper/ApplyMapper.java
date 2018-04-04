@@ -52,15 +52,16 @@ public interface ApplyMapper {
             applyDTO.setId(apply.getId());
         }
         List<AppointmentDTO> appointments = appointmentMapper.appointmentsToAppointmentDTOs(apply.getAppointments());
-        appointments.sort(new Comparator<AppointmentDTO>() {
-            @Override
-            public int compare(AppointmentDTO o1, AppointmentDTO o2) {
-                return o2.getInterviewType() - o1.getInterviewType();
-            }
-        });
+
         applyDTO.setAppointments(appointments);
         applyDTO.setApplyStatus(apply.getApplyStatus());
-        if (appointments.size() > 0) {
+        if (appointments != null && appointments.size() > 0) {
+            appointments.sort(new Comparator<AppointmentDTO>() {
+                @Override
+                public int compare(AppointmentDTO o1, AppointmentDTO o2) {
+                    return o2.getInterviewType() - o1.getInterviewType();
+                }
+            });
             applyDTO.setLatestAppointment(appointments.get(0));
         }
         return applyDTO;

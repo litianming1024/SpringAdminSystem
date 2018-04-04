@@ -1,11 +1,8 @@
 package cn.godbol.domain.dto;
 
-import cn.godbol.domain.Appointment;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Calendar;
-import java.util.Collection;
 import java.util.List;
 
 /**

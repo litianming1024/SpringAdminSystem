@@ -31,4 +31,5 @@ public class AppointmentDTO {
     private int status;
     private String basicInfoName;
     private String basicInfoTel;
+    private boolean push;
 }

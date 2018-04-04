@@ -43,6 +43,8 @@ public class Appointment extends BaseModel {
 //    private InterviewPlace interviewPlace;
     private int status = 0;
 
+    private boolean push;
+
 //    @OneToOne
 //    @JoinColumn
 //    private User interviewer;

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: prod
+    active: dev
 ---
 spring:
   profiles: dev
@@ -10,7 +10,7 @@ spring:
     password: mysqlroot
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
 logging:
   level:
@@ -38,7 +38,7 @@ wechat:
 
 ---
 spring:
-  profiles: prod
+  profiles: prodcreate
   datasource:
     url: jdbc:mysql://localhost:3306/springqs?characterEncoding=utf-8
     username: root
@@ -50,6 +50,43 @@ spring:
 logging:
   level:
     root: debug
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+security:
+  basic:
+    enabled: false
+storage:
+  uploadPath=file:./upload
+
+wechat:
+  mp:
+    appId: wxb21b41f0c6415294
+    secret: e86f3561a68ae8bc2ebccf2000c02a21
+    token: scan
+    aesKey:
+server:
+  port: 9000
+
+---
+spring:
+  profiles: produpdate
+  datasource:
+    url: jdbc:mysql://localhost:3306/springqs?characterEncoding=utf-8
+    username: root
+    password: godbosoftABC123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    root: warn
 jwt:
   header: Authorization
   secret: mySecret

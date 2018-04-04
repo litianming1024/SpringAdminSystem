@@ -24,8 +24,10 @@ public class Recruitment extends BaseModel{
     @Column(length = 30)
     private String category;
     //工作职责
+    @Column(length = 500)
     private String responsibility;
     //工作要求
+    @Column(length = 500)
     private String requirement;
     //招聘团队
     private String team;

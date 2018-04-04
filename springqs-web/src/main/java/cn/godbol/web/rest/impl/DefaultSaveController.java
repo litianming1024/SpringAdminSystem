@@ -24,7 +24,7 @@ public interface DefaultSaveController<T, ID extends Serializable, DTO> extends 
     @PostMapping
     default ResponseMessage create(@RequestBody DTO dto) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, WxErrorException {
         T result = getService().save(DTOToEntity(dto));
-        return ResponseMessage.ok(result);
+        return ResponseMessage.ok(entityToDTO(result));
     }
 
 }
